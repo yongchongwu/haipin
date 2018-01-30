@@ -1,0 +1,28 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "resumeId",
+            "javadoc": "简历主表ID",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "content",
+            "javadoc": "自我描述",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170802064527",
+    "javadoc": "自我描述\n@author wuyongchong.",
+    "entityTableName": "haipin_resume_intro",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

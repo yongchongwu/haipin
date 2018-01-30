@@ -1,0 +1,31 @@
+{
+    "haipinApp": {
+        "resumeIntro" : {
+        	"guide": {
+        		"title": "提供几个思路，试着从这些点描述自己：",
+        		"one": "· 你认为值得称道的工作细节；",
+        		"two":  "· 你曾经克服过的最大挑战；",
+        		"three": "· 你在找工作时最看重的方面；",
+        		"four": "· 你曾经引以为豪的个人项目或者事迹；",
+        		"five": "· 如果你是一位团队领导者，说说你的管理哲学以及独到的行业见解；",
+        		"six": "· 其它你认为能展示你优势的事情；"
+        	},
+            "home": {
+                "title": "自我描述",
+                "createLabel": "添加自我描述",
+                "createOrEditLabel": "创建或编辑自我描述"
+            },
+            "created": "A new Resume Intro is created with identifier {{ param }}",
+            "updated": "A Resume Intro is updated with identifier {{ param }}",
+            "deleted": "A Resume Intro is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Intro {{ id }}?"
+            },
+            "detail": {
+                "title": "自我描述"
+            },
+            "resumeId": "简历ID",
+            "content": "描述内容"
+        }
+    }
+}

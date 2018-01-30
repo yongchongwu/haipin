@@ -1,0 +1,112 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "recruitmentUuid",
+            "javadoc": "招聘会UUID",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "name",
+            "javadoc": "姓名",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 2
+        },
+        {
+            "fieldName": "birthYear",
+            "javadoc": "出生年份",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "highestDegree",
+            "javadoc": "最高学历",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "researchField",
+            "javadoc": "研究领域",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "workUnit",
+            "javadoc": "工作单位",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 2,
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "position",
+            "javadoc": "职位",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 2,
+            "fieldValidateRulesMaxlength": 50
+        },
+        {
+            "fieldName": "email",
+            "javadoc": "电子邮箱",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "^(\\w)+(\\.\\w+)*@(\\w)+((\\.\\w+)+)$"
+        },
+        {
+            "fieldName": "phone",
+            "javadoc": "电话",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 30
+        },
+        {
+            "fieldName": "homePage",
+            "javadoc": "个人主页",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "resumeUrl",
+            "javadoc": "简历上传路径",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170719041038",
+    "javadoc": "招聘会报名表.\n@author wuyongchong.",
+    "entityTableName": "haipin_registration",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

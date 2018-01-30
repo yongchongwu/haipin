@@ -1,0 +1,54 @@
+{
+    "haipinApp": {
+        "dataSearch" : {
+            "home": {
+                "title1": "overseas talents big data search",
+                "title2": "overseas talents detail"
+            },
+            "title": {
+                "degree": "Degree：",
+                "title": "Title：",
+                "disciplineDomain": "Domain：",
+                "InTheUniversity": "Inschool：",
+                "UniversityRankings": "University：",
+                "CurrentWorkPlace": "WorkPlace：",
+                "Place": "Place：",
+                "disciplineRanking": "subject：",
+                "name": "name：",
+                "EnglishName": "EnglishName：",
+                "age": "age：",
+                "email": "email：",
+                "ThePaperPartition": "Partition：",
+                "oneAre": "1 Are",
+                "twoAre": "2 Are",
+                "threeAre": "3 Are",
+                "fourAre": "4 Are",
+                "search": "search",
+                "talentsSearch": "search",
+                "experience": "overseasExperience： ",
+                "homepage": "homepage： "
+            },
+            "content": {
+                "title1": "find",
+                "title2": "results",
+                "RankedAccording": "RankedAccording",
+                "relevancy": "relevancy",
+                "subject": "subject",
+                "university": "university",
+                "resetCondition": "resetCondition",
+                "educationExperience": "educationExperience",
+                "noEducationExperience": "noEducationExperience",
+                "WorkExperience": "WorkExperience",
+                "noWorkExperience": "noWorkExperience",
+                "paperPublication": "paperPublication",
+                "nopaperPublication": "nopaperPublication",
+                "homepage": "homepage"
+            }
+        },
+        "footer": {
+        	"left": "Overseas talent pool by",
+        	"center": "I-Future Data Technology Inc.",
+        	"right": ",2017"
+        }
+    }
+}

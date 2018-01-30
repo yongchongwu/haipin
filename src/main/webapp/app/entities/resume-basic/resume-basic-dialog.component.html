@@ -1,0 +1,299 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myResumeBasicLabel" jhiTranslate="haipinApp.resumeBasic.home.createOrEditLabel">Create or edit a Resume Basic</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!resumeBasic.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="resumeBasic.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.userId" for="field_userId">User Id</label>
+            <input type="number" class="form-control" name="userId" id="field_userId"
+                [(ngModel)]="resumeBasic.userId" required />
+            <div [hidden]="!(editForm.controls.userId?.dirty && editForm.controls.userId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.userId?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.userId?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="resumeBasic.name" required minlength="2" />
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                   This field is required to be at least 2 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.sex" for="field_sex">Sex</label>
+            <input type="text" class="form-control" name="sex" id="field_sex"
+                [(ngModel)]="resumeBasic.sex" required minlength="1" maxlength="2" />
+            <div [hidden]="!(editForm.controls.sex?.dirty && editForm.controls.sex?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.sex?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.sex?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 1 }">
+                   This field is required to be at least 1 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.sex?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 2 }">
+                   This field cannot be longer than 2 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.birthDay" for="field_birthDay">Birth Day</label>
+            <input type="text" class="form-control" name="birthDay" id="field_birthDay"
+                [(ngModel)]="resumeBasic.birthDay" minlength="7" maxlength="7" />
+            <div [hidden]="!(editForm.controls.birthDay?.dirty && editForm.controls.birthDay?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.birthDay?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 7 }">
+                   This field is required to be at least 7 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.birthDay?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 7 }">
+                   This field cannot be longer than 7 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.birthYear" for="field_birthYear">Birth Year</label>
+            <input type="text" class="form-control" name="birthYear" id="field_birthYear"
+                [(ngModel)]="resumeBasic.birthYear" minlength="4" maxlength="4" />
+            <div [hidden]="!(editForm.controls.birthYear?.dirty && editForm.controls.birthYear?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.birthYear?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 4 }">
+                   This field is required to be at least 4 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.birthYear?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 4 }">
+                   This field cannot be longer than 4 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.birthMonth" for="field_birthMonth">Birth Month</label>
+            <input type="text" class="form-control" name="birthMonth" id="field_birthMonth"
+                [(ngModel)]="resumeBasic.birthMonth" minlength="2" maxlength="2" />
+            <div [hidden]="!(editForm.controls.birthMonth?.dirty && editForm.controls.birthMonth?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.birthMonth?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                   This field is required to be at least 2 characters.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.birthMonth?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 2 }">
+                   This field cannot be longer than 2 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.dialCode" for="field_dialCode">Dial Code</label>
+            <input type="text" class="form-control" name="dialCode" id="field_dialCode"
+                [(ngModel)]="resumeBasic.dialCode" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.dialCode?.dirty && editForm.controls.dialCode?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dialCode?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.dialCode?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.phone" for="field_phone">Phone</label>
+            <input type="text" class="form-control" name="phone" id="field_phone"
+                [(ngModel)]="resumeBasic.phone" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.phone?.dirty && editForm.controls.phone?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.phone?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.phone?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="resumeBasic.email" required maxlength="100" pattern="^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$" />
+            <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.email?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.email?.errors?.pattern" jhiTranslate="entity.validation.pattern" translateValues="{ pattern: 'Email' }">
+                    This field should follow pattern for "Email".
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.liveCity" for="field_liveCity">Live City</label>
+            <input type="text" class="form-control" name="liveCity" id="field_liveCity"
+                [(ngModel)]="resumeBasic.liveCity" required maxlength="100" />
+            <div [hidden]="!(editForm.controls.liveCity?.dirty && editForm.controls.liveCity?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.liveCity?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.liveCity?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.highestDegree" for="field_highestDegree">Highest Degree</label>
+            <input type="text" class="form-control" name="highestDegree" id="field_highestDegree"
+                [(ngModel)]="resumeBasic.highestDegree" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.highestDegree?.dirty && editForm.controls.highestDegree?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.highestDegree?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.highestDegree?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.researchField" for="field_researchField">Research Field</label>
+            <input type="text" class="form-control" name="researchField" id="field_researchField"
+                [(ngModel)]="resumeBasic.researchField" maxlength="100" />
+            <div [hidden]="!(editForm.controls.researchField?.dirty && editForm.controls.researchField?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.researchField?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.workYear" for="field_workYear">Work Year</label>
+            <input type="text" class="form-control" name="workYear" id="field_workYear"
+                [(ngModel)]="resumeBasic.workYear" required maxlength="20" />
+            <div [hidden]="!(editForm.controls.workYear?.dirty && editForm.controls.workYear?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.workYear?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.workYear?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                   This field cannot be longer than 20 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.headPic" for="field_headPic">Head Pic</label>
+            <input type="text" class="form-control" name="headPic" id="field_headPic"
+                [(ngModel)]="resumeBasic.headPic" maxlength="100" />
+            <div [hidden]="!(editForm.controls.headPic?.dirty && editForm.controls.headPic?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.headPic?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.oneWord" for="field_oneWord">One Word</label>
+            <input type="text" class="form-control" name="oneWord" id="field_oneWord"
+                [(ngModel)]="resumeBasic.oneWord" maxlength="200" />
+            <div [hidden]="!(editForm.controls.oneWord?.dirty && editForm.controls.oneWord?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.oneWord?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+                   This field cannot be longer than 200 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.userIdentity" for="field_userIdentity">User Identity</label>
+            <input type="text" class="form-control" name="userIdentity" id="field_userIdentity"
+                [(ngModel)]="resumeBasic.userIdentity" maxlength="100" />
+            <div [hidden]="!(editForm.controls.userIdentity?.dirty && editForm.controls.userIdentity?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.userIdentity?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.resumeName" for="field_resumeName">Resume Name</label>
+            <input type="text" class="form-control" name="resumeName" id="field_resumeName"
+                [(ngModel)]="resumeBasic.resumeName" maxlength="100" />
+            <div [hidden]="!(editForm.controls.resumeName?.dirty && editForm.controls.resumeName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.resumeName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.resumeKey" for="field_resumeKey">Resume Key</label>
+            <input type="text" class="form-control" name="resumeKey" id="field_resumeKey"
+                [(ngModel)]="resumeBasic.resumeKey" maxlength="100" />
+            <div [hidden]="!(editForm.controls.resumeKey?.dirty && editForm.controls.resumeKey?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.resumeKey?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.resumeScore" for="field_resumeScore">Resume Score</label>
+            <input type="number" class="form-control" name="resumeScore" id="field_resumeScore"
+                [(ngModel)]="resumeBasic.resumeScore"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.status" for="field_status">Status</label>
+            <input type="number" class="form-control" name="status" id="field_status"
+                [(ngModel)]="resumeBasic.status"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.createTime" for="field_createTime">Create Time</label>
+            <input type="number" class="form-control" name="createTime" id="field_createTime"
+                [(ngModel)]="resumeBasic.createTime"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.updateTime" for="field_updateTime">Update Time</label>
+            <input type="number" class="form-control" name="updateTime" id="field_updateTime"
+                [(ngModel)]="resumeBasic.updateTime"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

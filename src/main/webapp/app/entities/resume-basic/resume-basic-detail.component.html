@@ -1,0 +1,109 @@
+
+<div *ngIf="resumeBasic">
+    <h2><span jhiTranslate="haipinApp.resumeBasic.detail.title">Resume Basic</span> {{resumeBasic.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="haipinApp.resumeBasic.userId">User Id</span></dt>
+        <dd>
+            <span>{{resumeBasic.userId}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.name">Name</span></dt>
+        <dd>
+            <span>{{resumeBasic.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.sex">Sex</span></dt>
+        <dd>
+            <span>{{resumeBasic.sex}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.birthDay">Birth Day</span></dt>
+        <dd>
+            <span>{{resumeBasic.birthDay}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.birthYear">Birth Year</span></dt>
+        <dd>
+            <span>{{resumeBasic.birthYear}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.birthMonth">Birth Month</span></dt>
+        <dd>
+            <span>{{resumeBasic.birthMonth}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.dialCode">Dial Code</span></dt>
+        <dd>
+            <span>{{resumeBasic.dialCode}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.phone">Phone</span></dt>
+        <dd>
+            <span>{{resumeBasic.phone}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.email">Email</span></dt>
+        <dd>
+            <span>{{resumeBasic.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.liveCity">Live City</span></dt>
+        <dd>
+            <span>{{resumeBasic.liveCity}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.highestDegree">Highest Degree</span></dt>
+        <dd>
+            <span>{{resumeBasic.highestDegree}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.researchField">Research Field</span></dt>
+        <dd>
+            <span>{{resumeBasic.researchField}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.workYear">Work Year</span></dt>
+        <dd>
+            <span>{{resumeBasic.workYear}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.headPic">Head Pic</span></dt>
+        <dd>
+            <span>{{resumeBasic.headPic}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.oneWord">One Word</span></dt>
+        <dd>
+            <span>{{resumeBasic.oneWord}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.userIdentity">User Identity</span></dt>
+        <dd>
+            <span>{{resumeBasic.userIdentity}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.resumeName">Resume Name</span></dt>
+        <dd>
+            <span>{{resumeBasic.resumeName}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.resumeKey">Resume Key</span></dt>
+        <dd>
+            <span>{{resumeBasic.resumeKey}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.resumeScore">Resume Score</span></dt>
+        <dd>
+            <span>{{resumeBasic.resumeScore}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.status">Status</span></dt>
+        <dd>
+            <span>{{resumeBasic.status}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.createTime">Create Time</span></dt>
+        <dd>
+            <span>{{resumeBasic.createTime}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBasic.updateTime">Update Time</span></dt>
+        <dd>
+            <span>{{resumeBasic.updateTime}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'resume-basic/'+ resumeBasic.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

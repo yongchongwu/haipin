@@ -1,0 +1,19 @@
+.col-md-8>h1{
+	color: #48c1bc;
+}
+.alert{
+	background: #e2f8f7;
+	color: #48c1bc;
+	border: none;
+}
+.form-control{
+	border: 1px solid #48c1bc;
+}
+.btn{
+	width: 40%;
+	height: 40px;
+	border: none;
+	border-radius: 10px;
+	color: white;
+	background: rgb(72, 193, 188);
+}

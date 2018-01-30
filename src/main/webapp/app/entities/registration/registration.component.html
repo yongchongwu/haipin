@@ -1,0 +1,105 @@
+<div style="background: #F9F9F9;">
+	<button class="btn btn-primary  create-registration" [routerLink]="['/', { outlets: { popup: ['registration-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="haipinApp.registration.home.createLabel">
+            Create new Registration
+            </span>
+        </button>
+	<jhi-alert></jhi-alert>
+	
+	<br/>
+	<div class="table-responsive" *ngIf="registrations">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th><span jhiTranslate="global.field.id">ID</span></th>
+					<th><span jhiTranslate="haipinApp.registration.recruitmentUuid">Recruitment Uuid</span></th>
+					<th><span jhiTranslate="haipinApp.registration.name">Name</span></th>
+					<th><span jhiTranslate="haipinApp.registration.birthYear">Birth Year</span></th>
+					<th><span jhiTranslate="haipinApp.registration.highestDegree">Highest Degree</span></th>
+					<th><span jhiTranslate="haipinApp.registration.researchField">Research Field</span></th>
+					<th><span jhiTranslate="haipinApp.registration.workUnit">Work Unit</span></th>
+					<th><span jhiTranslate="haipinApp.registration.position">Position</span></th>
+					<th><span jhiTranslate="haipinApp.registration.email">Email</span></th>
+					<th><span jhiTranslate="haipinApp.registration.phone">Phone</span></th>
+					<th><span jhiTranslate="haipinApp.registration.homePage">Home Page</span></th>
+					<th><span jhiTranslate="haipinApp.registration.resumeUrl">Resume Url</span></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let registration of registrations ;trackBy: trackId">
+					<td>
+						<a [routerLink]="['../registration', registration.id ]">{{registration.id}}</a>
+					</td>
+					<td>{{registration.recruitmentUuid}}</td>
+					<td>{{registration.name}}</td>
+					<td>{{registration.birthYear}}</td>
+					<td>{{registration.highestDegree}}</td>
+					<td>{{registration.researchField}}</td>
+					<td>{{registration.workUnit}}</td>
+					<td>{{registration.position}}</td>
+					<td>{{registration.email}}</td>
+					<td>{{registration.phone}}</td>
+					<td>{{registration.homePage}}</td>
+					<td>{{registration.resumeUrl}}</td>
+					<td class="text-right">
+						<div class="btn-group flex-btn-group-container">
+							<button type="submit" [routerLink]="['../registration', registration.id ]" class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+							<button type="submit" [routerLink]="['/', { outlets: { popup: 'registration/'+ registration.id + '/edit'} }]" replaceUrl="true" class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+							<button type="submit" [routerLink]="['/', { outlets: { popup: 'registration/'+ registration.id + '/delete'} }]" replaceUrl="true" class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<ul>
+			<div class="titlet">招聘会报名</div>
+			<li>
+				<input type="text" placeholder="姓名" disabled="disabled" />
+			</li>
+			<li>
+				<input type="text" placeholder="出生年份"  disabled="disabled" />
+			</li>
+			<li>
+				<input type="text" placeholder="最高学历" disabled="disabled"  />
+			</li>
+			<li>
+				<input type="text" placeholder="研究领域" disabled="disabled"  />
+			</li>
+			<li>
+				<input type="text" placeholder="工作单位"  disabled="disabled" />
+			</li>
+			<li>
+				<input type="text" placeholder="职位" disabled="disabled"  />
+			</li>
+			<li>
+				<input type="text" placeholder="电子邮箱"  disabled="disabled" />
+			</li>
+			<li>
+				<input type="text" placeholder="电话"  disabled="disabled" />
+			</li>
+			<li>
+				<input type="text" placeholder="个人主页" disabled="disabled"  />
+			</li>
+			<li>
+				<input type="text" placeholder="简历"  disabled="disabled" />
+			</li>
+			<li>
+				
+			</li>
+
+		</ul>
+	</div>
+</div>

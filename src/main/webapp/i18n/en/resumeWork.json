@@ -1,0 +1,29 @@
+{
+    "haipinApp": {
+        "resumeWork" : {
+            "home": {
+                "title": "Work experience",
+                "createLabel": "Create a new Resume Work",
+                "createOrEditLabel": "Create or edit a Resume Work"
+            },
+            "created": "A new Resume Work is created with identifier {{ param }}",
+            "updated": "A Resume Work is updated with identifier {{ param }}",
+            "deleted": "A Resume Work is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Work {{ id }}?"
+            },
+            "detail": {
+                "title": "Resume Work"
+            },
+            "resumeId": "Resume Id",
+            "companyName": "Company Name",
+            "companyLogo": "Company Logo",
+            "positionName": "Position Name",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "workContent": "Work Content",
+            "isUploadLogo": "Is Upload Logo",
+            "time": "time in position"
+        }
+    }
+}

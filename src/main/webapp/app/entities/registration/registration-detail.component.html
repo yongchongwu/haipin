@@ -1,0 +1,65 @@
+
+<div *ngIf="registration">
+    <h2><span jhiTranslate="haipinApp.registration.detail.title">Registration</span> {{registration.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="haipinApp.registration.recruitmentUuid">Recruitment Uuid</span></dt>
+        <dd>
+            <span>{{registration.recruitmentUuid}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.registration.name">Name</span></dt>
+        <dd>
+            <span>{{registration.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.registration.birthYear">Birth Year</span></dt>
+        <dd>
+            <span>{{registration.birthYear}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.registration.highestDegree">Highest Degree</span></dt>
+        <dd>
+            <span>{{registration.highestDegree}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.registration.researchField">Research Field</span></dt>
+        <dd>
+            <span>{{registration.researchField}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.registration.workUnit">Work Unit</span></dt>
+        <dd>
+            <span>{{registration.workUnit}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.registration.position">Position</span></dt>
+        <dd>
+            <span>{{registration.position}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.registration.email">Email</span></dt>
+        <dd>
+            <span>{{registration.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.registration.phone">Phone</span></dt>
+        <dd>
+            <span>{{registration.phone}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.registration.homePage">Home Page</span></dt>
+        <dd>
+            <span>{{registration.homePage}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.registration.resumeUrl">Resume Url</span></dt>
+        <dd>
+            <span>{{registration.resumeUrl}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'registration/'+ registration.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

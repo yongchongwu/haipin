@@ -1,0 +1,23 @@
+{
+    "haipinApp": {
+        "resumeBlock" : {
+            "home": {
+                "title": "Resume Blocks",
+                "createLabel": "Create a new Resume Block",
+                "createOrEditLabel": "Create or edit a Resume Block"
+            },
+            "created": "A new Resume Block is created with identifier {{ param }}",
+            "updated": "A Resume Block is updated with identifier {{ param }}",
+            "deleted": "A Resume Block is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Block {{ id }}?"
+            },
+            "detail": {
+                "title": "Resume Block"
+            },
+            "resumeId": "Resume Id",
+            "titleName": "Title Name",
+            "titleContent": "Title Content"
+        }
+    }
+}

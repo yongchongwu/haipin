@@ -1,0 +1,70 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "resumeId",
+            "javadoc": "简历主表ID",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "companyName",
+            "javadoc": "公司名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 2,
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "companyLogo",
+            "javadoc": "公司LOGO",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "positionName",
+            "javadoc": "职位",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "startDate",
+            "javadoc": "在职开始日期",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "endDate",
+            "javadoc": "在职结束日期",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "workContent",
+            "javadoc": "工作内容",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "isUploadLogo",
+            "javadoc": "是否上传公司LOGO",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20170801034554",
+    "javadoc": "工作经历\n@author wuyongchong.",
+    "entityTableName": "haipin_resume_work",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

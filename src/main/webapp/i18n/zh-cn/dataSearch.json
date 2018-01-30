@@ -1,0 +1,54 @@
+{
+    "haipinApp": {
+        "dataSearch" : {
+            "home": {
+                "title1": "海外高端人才大数据搜索",
+                "title2": "海外高端人才详情"
+            },
+            "title": {
+                "degree": "学历：",
+                "title": "职称：",
+                "disciplineDomain": "学科领域：",
+                "InTheUniversity": "在职大学：",
+                "UniversityRankings": "所在大学排名：",
+                "CurrentWorkPlace": "目前工作地点：",
+                "Place": "地点：",
+                "disciplineRanking": "学科排名：",
+                "name": "姓名：",
+                "EnglishName": "英文名：",
+                "age": "年龄：",
+                "email": "电子邮箱：",
+                "ThePaperPartition": "论文分区：",
+                "oneAre": "一区",
+                "twoAre": "二区",
+                "threeAre": "三区",
+                "fourAre": "四区",
+                "search": "检索",
+                "talentsSearch": "搜索",
+                "experience": "海外工作、学习经历： ",
+                "homepage": "个人主页： "
+            },
+            "content": {
+                "title1": "发现",
+                "title2": "条结果",
+                "RankedAccording": "排名根据",
+                "relevancy": "相关度",
+                "subject": "学科",
+                "university": "大学",
+                "resetCondition": "清楚筛选",
+                "educationExperience": "教育经历",
+                "noEducationExperience": "暂无教育经历",
+                "WorkExperience": "工作经历",
+                "noWorkExperience": "暂无工作经历",
+                "paperPublication": "论文与出版物",
+                "nopaperPublication": "暂无论文",
+                "homepage": "个人主及其他情况"
+            }
+        },
+        "footer": {
+        	"left": "海外人才库by",
+        	"center": "I-Future Data Technology Inc.",
+        	"right": ",2017"
+        }
+    }
+}

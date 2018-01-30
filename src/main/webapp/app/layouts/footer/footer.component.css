@@ -1,0 +1,13 @@
+/* FOOTER */
+footer {
+    color: #949494;
+    margin: 20px auto !important;
+    text-align: center;
+}
+footer a {
+    color: #0275d8;
+    text-decoration: none;
+}
+footer a:hover {
+    color: rgb(1,76,140);
+}

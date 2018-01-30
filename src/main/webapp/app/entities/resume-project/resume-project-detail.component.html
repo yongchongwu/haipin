@@ -1,0 +1,49 @@
+
+<div *ngIf="resumeProject">
+    <h2><span jhiTranslate="haipinApp.resumeProject.detail.title">Resume Project</span> {{resumeProject.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="haipinApp.resumeProject.resumeId">Resume Id</span></dt>
+        <dd>
+            <span>{{resumeProject.resumeId}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeProject.projectName">Project Name</span></dt>
+        <dd>
+            <span>{{resumeProject.projectName}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeProject.positionName">Position Name</span></dt>
+        <dd>
+            <span>{{resumeProject.positionName}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeProject.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{resumeProject.startDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeProject.endDate">End Date</span></dt>
+        <dd>
+            <span>{{resumeProject.endDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeProject.projectRemark">Project Remark</span></dt>
+        <dd>
+            <span>{{resumeProject.projectRemark}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeProject.projectUrl">Project Url</span></dt>
+        <dd>
+            <span>{{resumeProject.projectUrl}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'resume-project/'+ resumeProject.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

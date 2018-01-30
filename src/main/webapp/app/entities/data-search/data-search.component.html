@@ -1,0 +1,300 @@
+<!--页面大盒子-->
+<div class="search_content">
+	<!--内容大盒子-->
+	<div class="content">
+		<!--顶部图片和标题-->
+		<div class="top">
+			<p><img src="../../../content/images/title.png" alt="title"/>海外高端人才大数据平台</p>
+		</div>
+		<!--中部条件筛选检索-->
+		<div class="middle">
+			<ul>
+				<li class="one_row">
+					<span class="one_col" [style.display]="'none'">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.degree">学历：</strong>
+						<div class="sk-select">
+							<select [(ngModel)]="dataSearch.edu_chinese">
+								<option value="">不限</option>
+								<option value="{{ edu_obj.key }}" *ngFor="let edu_obj of edu_chineses;let idx=index;">{{ edu_obj.key }}</option>
+							</select>
+						</div>
+					</span>
+					<!--学历（复选框）-->
+					<span class="one_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.degree">学历：</strong>
+						<div class="input" (click)="checkbox_effect('title',$event,'edu')">
+							<span *ngIf="!edu_display_content">不限</span>
+							<span *ngFor="let edu_obj of edu_content;let idx=index;" [hidden]="!edu_content[idx][1]">
+								<p>{{ edu_obj[0] }}</p>
+								<p class="clear_title" (click)="checkbox_effect(idx,$event,'edu')">X</p>
+							</span>
+						</div>
+						<div class="title_checkbox" [style.display]="edu_display" (click)="checkbox_effect('',$event,'edu')">
+							<span class="title_close" (click)="checkbox_effect('title_close',$event,'edu')">X</span>
+							<span class="checkbox" *ngFor="let edu_obj of edu_content;let idx=index;">
+								<label>
+									<input type="checkbox" [(ngModel)]="edu_content[idx][1]" (change)="checkbox_effect('change',$event,'edu')">
+									<span>{{ edu_obj[0] }}</span>
+								</label>
+							</span>
+						</div>
+					</span>
+					<!--职称（复选框）-->
+					<span class="two_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.title">职称：</strong>
+						<div class="input" (click)="checkbox_effect('title',$event,'title')">
+							<span *ngIf="!title_display_content">不限</span>
+							<span *ngFor="let title_obj of title_content;let idx=index;" [hidden]="!title_content[idx][1]">
+								<p>{{ title_obj[0] }}</p>
+								<p class="clear_title" (click)="checkbox_effect(idx,$event,'title')">X</p>
+							</span>
+						</div>
+						<div class="title_checkbox" [style.display]="title_display" (click)="checkbox_effect('',$event,'title')">
+							<span class="title_close" (click)="checkbox_effect('title_close',$event,'title')">X</span>
+							<span class="checkbox" *ngFor="let title_obj of title_content;let idx=index;">
+								<label>
+									<input type="checkbox" [(ngModel)]="title_content[idx][1]" (change)="checkbox_effect('change',$event,'title')">
+									<span>{{ title_obj[0] }}</span>
+								</label>
+							</span>
+						</div>
+					</span>
+					<span class="three_col" [style.display]="'none'">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.disciplineDomain">学科领域：</strong>
+						<div class="sk-select">
+							<select (change)="select_change('eol1')" [(ngModel)]="dataSearch.eol1_chinese">
+							    <option value="" >不限</option>
+							    <option value="{{ eol1_obj.key }}" *ngFor="let eol1_obj of eol1_chineses;let idx=index;">{{ eol1_obj.key }}</option>
+							</select>
+						</div>
+						<div class="sk-select">
+							<select (change)="select_change('eol2')"  [(ngModel)]="dataSearch.eol2_chinese">
+							    <option value="">不限</option>
+							    <option value="{{ eol2_obj.key }}" *ngFor="let eol2_obj of eol2_chineses;let idx=index;">{{ eol2_obj.key }}</option>
+							</select>
+						</div>
+						<div class="sk-select">
+							<select  [(ngModel)]="dataSearch.eol3_chinese">
+							    <option value="">不限</option>
+							    <option value="{{ eol3_obj.key }}" *ngFor="let eol3_obj of eol3_chineses;let idx=index;">{{ eol3_obj.key }}</option>
+							</select>
+						</div>
+					</span>
+					<!--学科领域（复选框）-->
+					<span class="three_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.disciplineDomain">学科领域：</strong>
+						<div class="input">
+							<span *ngIf="!subject_display_content">不限</span>
+						</div>
+					</span>
+				</li>
+				<li class="two_row">
+					<span class="one_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.InTheUniversity">在职大学：</strong>
+						<div class="input">
+							<input type="text" placeholder="在职大学" (input)="oninput('great')" [(ngModel)]="dataSearch.university_chinese">
+							<span [hidden]='great_display' (click)="x_Click('great')">x</span>
+						</div>
+					</span>
+					<span class="two_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.UniversityRankings">所在大学排名：</strong>
+						<input type="number" placeholder="最小" [(ngModel)]="dataSearch.university_rank_min">
+						<span class="to">至</span>
+                        <input type="number" placeholder="最大" [(ngModel)]="dataSearch.university_rank_max">
+					</span>
+					<span class="three_col" [style.display]="'none'">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.CurrentWorkPlace">目前工作地点：</strong>
+						<div class="sk-select">
+							<select (change)="select_change('country')" [(ngModel)]="dataSearch.country_chinese">
+							    <option value="">国家不限</option>
+							    <option value="{{ country_obj.key }}" *ngFor="let country_obj of country_chineses;let idx=index;">{{ country_obj.key }}</option>
+                            </select>
+						</div>
+						<div class="sk-select">
+							<select [(ngModel)]="dataSearch.state_chinese">
+						        <option value="">地区不限</option>
+						        <option value="{{ state_obj.key }}" *ngFor="let state_obj of state_chineses;let idx=index;">{{ state_obj.key }}</option>
+                            </select>
+						</div>
+					</span>
+					<!--目前工作地点（复选框）-->
+					<span class="three_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.CurrentWorkPlace">目前工作地点：</strong>
+						<div class="input">
+							<span *ngIf="!site_display_content">不限</span>
+						</div>
+					</span>
+				</li>
+				<li class="three_row">
+					<span class="one_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.disciplineRanking">学科排名：</strong>
+						<input type="number" placeholder="最小" [(ngModel)]="dataSearch.academic_rank_min">
+						<span class="to">至</span>
+                        <input type="number" placeholder="最大" [(ngModel)]="dataSearch.academic_rank_max">
+					</span>
+					<span class="two_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.name">姓名：</strong>
+						<div class="input">
+							<input type="text" placeholder="姓名" (input)="oninput('name')" [(ngModel)]="dataSearch.name">
+							<span [hidden]="name_display" (click)="x_Click('name')">x</span>
+						</div>
+					</span>
+					<span class="three_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.age">年龄：</strong>
+						<input type="number" placeholder="最小" [(ngModel)]="dataSearch.age_min">
+						<span class="to">至</span>
+                        <input type="number" placeholder="最大" [(ngModel)]="dataSearch.age_max">
+					</span>
+					<span class="four_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.email">电子邮箱：</strong>
+						<div class="input">
+							<input type="text" placeholder="电子邮箱" (input)="oninput('email')" [(ngModel)]="dataSearch.email">
+							<span [hidden]="email_display" (click)="x_Click('email')">x</span>
+						</div>
+					</span>
+				</li>
+				<li class="four_row">
+					<span class="one_col">
+						<strong class="title" jhiTranslate="haipinApp.dataSearch.title.ThePaperPartition">论文分区：</strong>
+						<div>
+							<span class="span">
+								<label>
+									<input type="checkbox" value="on" [(ngModel)]="dataSearch.have_zone_1">
+									<span jhiTranslate="haipinApp.dataSearch.title.oneAre">一区</span>
+								</label>
+							</span>
+						</div>
+						<div>
+							<span class="span">
+								<label>
+									<input type="checkbox" value="on" [(ngModel)]="dataSearch.have_zone_2">
+									<span jhiTranslate="haipinApp.dataSearch.title.twoAre">二区</span>
+								</label>
+							</span>
+						</div>
+						<div>
+							<span class="span">
+								<label>
+									<input type="checkbox" value="on" [(ngModel)]="dataSearch.have_zone_3">
+									<span jhiTranslate="haipinApp.dataSearch.title.threeAre">三区</span>
+								</label>
+							</span>
+						</div>
+						<div>
+							<span class="span">
+								<label>
+									<input type="checkbox" value="on" [(ngModel)]="dataSearch.have_zone_4">
+									<span jhiTranslate="haipinApp.dataSearch.title.fourAre">四区</span>
+								</label>
+							</span>
+						</div>
+					</span>
+					<span class="two_col">
+						<strong class="title search"></strong>
+						<div class="input">
+							<input type="text" placeholder="模糊检索" (input)="oninput('keyword')" [(ngModel)]="dataSearch.keyword">
+							<span [hidden]="keyword_display" (click)="x_Click('keyword')">x</span>
+						</div>
+					</span>
+				</li>
+				<li class="five_row">
+					<div>
+						<button class="sk-btn" (click)="btn_search()" jhiTranslate="haipinApp.dataSearch.title.search">检&nbsp;&nbsp;索</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<!--底部搜索结果-->
+		<div class="bottom">
+			<!--上面发现结果到清楚筛选-->
+			<div class="roof">
+				<span class="result" jhiTranslate="haipinApp.dataSearch.content.title1">发现</span>
+				<span class="result">&nbsp;{{ results_number }}&nbsp;</span>
+				<span class="result" jhiTranslate="haipinApp.dataSearch.content.title2">条结果</span>
+				<span class="ranking">
+					<span jhiTranslate="haipinApp.dataSearch.content.RankedAccording">排名根据</span>
+					<div class="sk-select">
+						<select [(ngModel)]="rank_gist" (change)="select_change('rank_gist')">
+						    <option value="RelevanceRanking" jhiTranslate="haipinApp.dataSearch.content.relevancy">相关度</option>
+						    <option value="AcademicRanking" jhiTranslate="haipinApp.dataSearch.content.subject">学科</option>
+						    <option value="UniversityRank" jhiTranslate="haipinApp.dataSearch.content.university">大学</option>
+						</select>
+					</div>
+				</span>
+				<div class="filtrate">
+					<span (click)="reset()" jhiTranslate="haipinApp.dataSearch.content.resetCondition">清楚筛选</span>
+				</div>
+				<div class="condition">
+					<span class="condition_obj" *ngFor="let condition_obj of conditions;let idx=index;">
+						<p>{{ condition_obj[0] }}:&nbsp;</p>
+						<p (click)="reset_obj(idx)">{{ condition_obj[1] }}</p>
+						<p (click)="reset_obj(idx)">X</p>
+					</span>
+				</div>
+			</div>
+			<!--下面搜索结果和分页-->
+			<div class="center">
+				<!--每一条搜索结果-->
+				<ul class="search_result" *ngFor="let result_obj of search_results;let idx=index;">
+					<div class="name"><a [routerLink]="['../data-detail', result_obj._source.index ]" target="_blank">{{ result_obj._source.name }}</a></div>
+					<li class="one_col">
+						<span>
+							<img src="../../../content/images/briefcase-100.png" title="Briefcase" width="20" height="20" alt=""/>
+							<p class="nowrap">学历：&nbsp;</p>
+							<p class="ctt">{{ result_obj._source.edu_chinese?result_obj._source.edu_chinese:'未知' }}</p>
+						</span>
+						<span>
+							<img src="../../../content/images/book-100.png" title="Book" width="20" height="20" alt=""/>
+							<p class="nowrap">专业：&nbsp;</p>
+							<p class="ctt">{{ result_obj._source.eol3_chinese?result_obj._source.eol3_chinese:'未知' }}&nbsp;&nbsp;专业排名：&nbsp;{{ result_obj._source.academic_rank?result_obj._source.academic_rank:'未知' }}</p>
+						</span>
+						<span>
+							<img src="../../../content/images/university-100.png" title="University" width="20" height="20" alt=""/>
+							<p class="nowrap">大学：&nbsp;</p>
+							<p class="ctt">{{ result_obj._source.university_chinese?result_obj._source.university_chinese:'未知' }}&nbsp;&nbsp;大学世界排名： &nbsp;{{ result_obj._source.university_rank?result_obj._source.university_rank:'未知' }}</p>
+						</span>
+					</li>
+					<li class="two_col">
+						<span>
+							<p class="nowrap">性别：&nbsp;</p>
+							<p class="ctt">{{ result_obj._source.gender?(result_obj._source.gender == 'male'?'男':'女'):'未知' }}</p>
+						</span>
+                        <span>
+                        	<p class="nowrap">邮箱：&nbsp;</p>
+                        	<p class="ctt">{{ result_obj._source.email?result_obj._source.email:'未知' }}</p>
+                        </span>
+                        <span>
+                        	<p class="nowrap">职称：&nbsp;</p>
+                        	<p class="ctt">{{ result_obj._source.title_chinese?result_obj._source.title_chinese:'未知' }}</p>
+                        </span>
+					</li>
+					<li class="three_col">
+						<span>
+							<p class="nowrap">电话：&nbsp;</p>
+							<p class="three_ctt">{{ result_obj._source.phone?result_obj._source.phone:'未知' }}</p>
+						</span>
+                        <span>
+                        	<p class="nowrap">年龄：&nbsp;</p>
+                        	<p class="three_ctt">{{ result_obj._source.age?result_obj._source.age:'未知' }}</p>
+                        </span>
+					</li>
+				</ul>
+				<!--分页-->
+				<div class="page">
+					<div class="justify-content-center">
+						<jhi-item-count [page]="page" [total]="totalItems" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+					</div>
+			        <div class="justify-content-center">
+			            <ngb-pagination class="pagination" [collectionSize]="totalItems" [(page)]="page" (pageChange)="loadPage(page)"></ngb-pagination>
+			        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--蒙板-->
+	<div class="mask" [style.width] = "mask_width" [style.height] = "mask_height"></div>
+	<!--返回顶部-->
+	<div class="back_top" [style.opacity] = "top_opacity" (click)="back_top()">
+		<img src="../../../content/images/back_top.jpg" alt="back top"/>
+	</div>
+</div>

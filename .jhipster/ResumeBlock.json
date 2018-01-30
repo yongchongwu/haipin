@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "resumeId",
+            "javadoc": "简历主表ID",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "titleName",
+            "javadoc": "标题",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "titleContent",
+            "javadoc": "内容",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170801034924",
+    "javadoc": "自定义板块\n@author wuyongchong.",
+    "entityTableName": "haipin_resume_block",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

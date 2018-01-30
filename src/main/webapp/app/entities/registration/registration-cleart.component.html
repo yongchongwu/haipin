@@ -1,0 +1,161 @@
+<form name="regForm" role="form" #regForm="ngForm" (ngSubmit)="enrol()" enctype="multipart/form-data">
+    <div class="cleartbox">
+        <div class="cleartboxb">
+            <div class="zhaopintitle">招聘会报名</div>
+            <!--姓名-->
+            <div class="form-group">
+                <input type="text" class="form-control" name="name" id="field_name" placeholder="姓名"
+                       [(ngModel)]="registration.name" required minlength="2"/>
+                <div [hidden]="!(regForm.controls.name?.dirty && regForm.controls.name?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.name?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.name?.errors?.minlength"
+                           jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                    </small>
+                </div>
+            </div>
+            <!--出生年-->
+            <select class="form-control" name="birthYears" [(ngModel)]="registration.birthYear" required>
+            	<option value="">出生年份</option>
+                <option *ngFor="let birthYearObj of birthYears" [value]="birthYearObj.code">
+                    {{birthYearObj.text}}
+                </option>
+            </select>
+            <!--学历-->
+            <select class="form-control" name="highestDegree"
+                    [(ngModel)]="registration.highestDegree" required>
+                    <option value="">最高学历</option>
+                <option *ngFor="let highestDegreeObj of highestDegrees"
+                        [value]="highestDegreeObj.code">
+                    {{highestDegreeObj.code}}
+                </option>
+            </select>
+            <!--研究领域-->
+            <select class="form-control" name="researchField"
+                    [(ngModel)]="registration.researchField" required>
+                    <option value="">研究领域</option>
+                <option *ngFor="let researchFieldObj of researchFields"
+                        [value]="researchFieldObj.code">{{researchFieldObj.code}}
+                </option>
+            </select>
+            <!--工作单位-->
+            <div class="form-group">
+                <input type="text" class="form-control" name="workUnit" id="field_workUnit"
+                       placeholder="工作单位"
+                       [(ngModel)]="registration.workUnit" required minlength="2" maxlength="100"/>
+                <div
+                    [hidden]="!(regForm.controls.workUnit?.dirty && regForm.controls.workUnit?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.workUnit?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.workUnit?.errors?.minlength"
+                           jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.workUnit?.errors?.maxlength"
+                           jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                    </small>
+                </div>
+            </div>
+            <!--职位-->
+            <div class="form-group">
+                <input type="text" class="form-control" name="position" id="field_position"
+                       placeholder="职位"
+                       [(ngModel)]="registration.position" required minlength="2" maxlength="50"/>
+                <div
+                    [hidden]="!(regForm.controls.position?.dirty && regForm.controls.position?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.position?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.position?.errors?.minlength"
+                           jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                        This field is required to be at least 2 characters.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.position?.errors?.maxlength"
+                           jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+                        This field cannot be longer than 50 characters.
+                    </small>
+                </div>
+            </div>
+            <!--电子邮箱-->
+            <div class="form-group">
+                <input type="text" class="form-control" name="email" id="field_email" placeholder="电子邮箱"
+                       [(ngModel)]="registration.email" required
+                       pattern="^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$"/>
+                <div [hidden]="!(regForm.controls.email?.dirty && regForm.controls.email?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.email?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.email?.errors?.pattern"
+                           jhiTranslate="entity.validation.pattern"
+                           translateValues="{ pattern: 'Email' }">
+                        This field should follow pattern for "Email".
+                    </small>
+                </div>
+            </div>
+            <!--电话-->
+            <div class="form-group">
+                <input type="text" class="form-control" name="phone" id="field_phone" placeholder="电话"
+                       [(ngModel)]="registration.phone" required maxlength="30"/>
+                <div [hidden]="!(regForm.controls.phone?.dirty && regForm.controls.phone?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.phone?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.phone?.errors?.maxlength"
+                           jhiTranslate="entity.validation.maxlength" translateValues="{ max: 30 }">
+                        This field cannot be longer than 30 characters.
+                    </small>
+                </div>
+            </div>
+            <!--个人主页-->
+            <div class="form-group">
+                <input type="text" class="form-control" name="homePage" id="field_homePage"
+                       placeholder="个人主页"
+                       [(ngModel)]="registration.homePage" maxlength="100"/>
+                <div [hidden]="!(regForm.controls.homePage?.dirty && regForm.controls.homePage?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.homePage?.errors?.maxlength"
+                           jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                    </small>
+                </div>
+            </div>
+            <!--附件简历-->
+            <div class="form-group">
+                <input type="file" class="form-control" name="resume_file" id="resume_file" required/>
+                <div [hidden]="!(regForm.controls.resume_file?.dirty && regForm.controls.resume_file?.invalid)">
+                    <small class="form-text text-danger"
+                           [hidden]="!regForm.controls.resume_file?.errors?.required"
+                           jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <button type="submit" [disabled]="regForm.form.invalid || isSaving"
+                    class="btn btn-primary">
+                <span class="fa fa-save"></span>&nbsp;
+                <span jhiTranslate="entity.action.save">Save</span>
+            </button>
+        </div>
+    </div>
+</form>

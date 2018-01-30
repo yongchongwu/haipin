@@ -1,0 +1,28 @@
+.modal-header{
+	display: block;
+}
+.modal-title{
+	text-align: center;
+	width: 100%;
+    height: 48px;
+    font-size: 36px;
+    color: #48c1bc;
+}
+.modal-body{
+	border-radius:20px ;
+}
+.alert-warning{
+	background: #e2f8f7;
+	border: none;
+}
+.btn{
+	width: 100%;
+	height: 40px;
+	border: none;
+	border-radius: 10px;
+	background: rgb(72, 193, 188);
+}
+.close{
+    margin-top: -40px;
+    margin-right: 10px;
+}

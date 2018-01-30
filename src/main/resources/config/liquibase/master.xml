@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170719041037_added_entity_Card.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170719041038_added_entity_Registration.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170727092909_added_entity_ResumeBasic.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170801034827_added_entity_ResumeAttach.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170801035234_added_entity_ResumeSetting.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170801034924_added_entity_ResumeBlock.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170801035001_added_entity_ResumeEducation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170801035127_added_entity_ResumeExpect.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170801035153_added_entity_ResumeProject.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170801035248_added_entity_ResumeShowcase.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170801035306_added_entity_ResumeSkill.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170801034554_added_entity_ResumeWork.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20170802064527_added_entity_ResumeIntro.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="classpath:config/liquibase/changelog/20170719041037_added_entity_constraints_Card.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

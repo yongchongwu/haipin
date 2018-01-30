@@ -1,0 +1,58 @@
+<div style="background: #f9f9f9;" class="booo">
+	<h2>
+        <button class="btn btn-primary btn-cj create-card"
+                [routerLink]="['/', { outlets: { popup: ['card-new'] } }]" *ngIf="!card">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="haipinApp.card.home.createLabel">
+            </span>
+        </button>
+	</h2>
+   	<jhi-alert></jhi-alert>
+	<div class="row">
+		<div class="big_box" *ngIf="card">
+			<table class="box">
+				<tbody>
+					<tr class="ad">
+							<td class="uiui">
+								<div class="noo">
+								<td class="unit">{{card.workUnit}}</td>
+								<td class="cit">{{card.city}}</td>
+							</div>
+							<div class="nooo">
+								<td class="nam">{{card.name}}</td>
+								<td class="posi">{{card.position}}</td>
+								<div class="main_box">
+									<td class="high">{{card.highestDegree}}</td>
+									<td class="rese">{{card.researchField}}</td>
+									<td class="ema">{{card.email}}</td>
+									<td class="pho">{{card.phone}}</td>
+								</div>
+							</div>
+							</td>
+
+							<!--<td>
+							{{card.user?.id}}
+						</td>-->
+						<td class="text-center">
+
+							<div class="btn-group flex-btn-group-container">
+								<!--<button type="submit" [routerLink]="['../card', card.id ]" class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>-->
+								<button type="submit" [routerLink]="['/', { outlets: { popup: 'card/'+ card.id + '/edit'} }]" replaceUrl="true" class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+								<button type="submit" [routerLink]="['/', { outlets: { popup: 'card/'+ card.id + '/delete'} }]" replaceUrl="true" class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

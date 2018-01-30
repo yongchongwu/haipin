@@ -1,0 +1,31 @@
+{
+    "haipinApp": {
+        "resumeIntro" : {
+        	"guide": {
+        		"title": "Offer a few ideas and try to describe yourself from these points：",
+        		"one": "· What you think is worthy of praise；",
+        		"two":  "· The biggest challenge you've ever overcome；",
+        		"three": "· What you value most in your job search；",
+        		"four": "· Personal projects or events that you've been proud of；",
+        		"five": "· If you are a team leader, talk about your management philosophy and unique industry insights；",
+        		"six": "· Other things you think can show your strengths；"
+        	},
+            "home": {
+                "title": "Resume Intros",
+                "createLabel": "Create a new Resume Intro",
+                "createOrEditLabel": "Create or edit a Resume Intro"
+            },
+            "created": "A new Resume Intro is created with identifier {{ param }}",
+            "updated": "A Resume Intro is updated with identifier {{ param }}",
+            "deleted": "A Resume Intro is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Intro {{ id }}?"
+            },
+            "detail": {
+                "title": "Resume Intro"
+            },
+            "resumeId": "Resume Id",
+            "content": "Content"
+        }
+    }
+}

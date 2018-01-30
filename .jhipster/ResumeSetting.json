@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userId",
+            "javadoc": "用户ID",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "defaultResume",
+            "javadoc": "默认简历",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "resumePrivacy",
+            "javadoc": "隐私设置",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170801035234",
+    "javadoc": "简历设置\n@author wuyongchong.",
+    "entityTableName": "haipin_resume_setting",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,42 @@
+{
+    "haipinApp": {
+        "resumeBasic" : {
+            "home": {
+                "title": "Resume Basics",
+                "createLabel": "Create a new Resume Basic",
+                "createOrEditLabel": "Create or edit a Resume Basic"
+            },
+            "created": "A new Resume Basic is created with identifier {{ param }}",
+            "updated": "A Resume Basic is updated with identifier {{ param }}",
+            "deleted": "A Resume Basic is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Basic {{ id }}?"
+            },
+            "detail": {
+                "title": "Resume Basic"
+            },
+            "userId": "User Id",
+            "name": "Name",
+            "sex": "Sex",
+            "birthDay": "Birth Day",
+            "birthYear": "Birth Year",
+            "birthMonth": "Birth Month",
+            "dialCode": "Dial Code",
+            "phone": "Phone",
+            "email": "Email",
+            "liveCity": "Live City",
+            "highestDegree": "Highest Degree",
+            "researchField": "Research Field",
+            "workYear": "Work Year",
+            "headPic": "Head Pic",
+            "oneWord": "One Word",
+            "userIdentity": "User Identity",
+            "resumeName": "Resume Name",
+            "resumeKey": "Resume Key",
+            "resumeScore": "Resume Score",
+            "status": "Status",
+            "createTime": "Create Time",
+            "updateTime": "Update Time"
+        }
+    }
+}

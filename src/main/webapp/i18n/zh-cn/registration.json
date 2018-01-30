@@ -1,0 +1,31 @@
+{
+    "haipinApp": {
+        "registration" : {
+            "home": {
+                "title": "招聘会报名",
+                "createLabel": "添加报名信息",
+                "createOrEditLabel": "创建或编辑报名信息"
+            },
+            "created": "A new Registration is created with identifier {{ param }}",
+            "updated": "A Registration is updated with identifier {{ param }}",
+            "deleted": "A Registration is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Registration {{ id }}?"
+            },
+            "detail": {
+                "title": "报名登记"
+            },
+            "recruitmentUuid": "报名信息ID",
+            "name": "姓名",
+            "birthYear": "出生年份",
+            "highestDegree": "最高学历",
+            "researchField": "研究领域",
+            "workUnit": "工作单位",
+            "position": "职位",
+            "email": "电子邮箱",
+            "phone": "电话",
+            "homePage": "个人主页",
+            "resumeUrl": "附件简历"
+        }
+    }
+}

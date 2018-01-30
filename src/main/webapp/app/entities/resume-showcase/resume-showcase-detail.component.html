@@ -1,0 +1,45 @@
+
+<div *ngIf="resumeShowcase">
+    <h2><span jhiTranslate="haipinApp.resumeShowcase.detail.title">Resume Showcase</span> {{resumeShowcase.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="haipinApp.resumeShowcase.resumeId">Resume Id</span></dt>
+        <dd>
+            <span>{{resumeShowcase.resumeId}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeShowcase.title">Title</span></dt>
+        <dd>
+            <span>{{resumeShowcase.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeShowcase.content">Content</span></dt>
+        <dd>
+            <span>{{resumeShowcase.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeShowcase.imageUrl">Image Url</span></dt>
+        <dd>
+            <span>{{resumeShowcase.imageUrl}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeShowcase.cutImageUrl">Cut Image Url</span></dt>
+        <dd>
+            <span>{{resumeShowcase.cutImageUrl}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeShowcase.url">Url</span></dt>
+        <dd>
+            <span>{{resumeShowcase.url}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'resume-showcase/'+ resumeShowcase.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

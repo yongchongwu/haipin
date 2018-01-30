@@ -1,0 +1,28 @@
+{
+    "haipinApp": {
+        "resumeProject" : {
+            "home": {
+                "title": "项目经验",
+                "createLabel": "添加项目经验",
+                "createOrEditLabel": "创建或编辑项目经验"
+            },
+            "created": "A new Resume Project is created with identifier {{ param }}",
+            "updated": "A Resume Project is updated with identifier {{ param }}",
+            "deleted": "A Resume Project is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Project {{ id }}?"
+            },
+            "detail": {
+                "title": "项目经验"
+            },
+            "resumeId": "简历ID",
+            "projectName": "项目名称",
+            "positionName": "你的职责",
+            "startDate": "开始时间",
+            "endDate": "结束时间",
+            "projectRemark": "项目描述",
+            "projectUrl": "项目链接（若有）",
+            "time":"项目起止时间"
+        }
+    }
+}

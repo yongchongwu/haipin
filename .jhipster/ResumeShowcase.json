@@ -1,0 +1,53 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "resumeId",
+            "javadoc": "简历主表ID",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "title",
+            "javadoc": "作品标题",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "content",
+            "javadoc": "作品描述",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "imageUrl",
+            "javadoc": "作品图片",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cutImageUrl",
+            "javadoc": "作品剪切图片",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "url",
+            "javadoc": "作品地址",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170801035248",
+    "javadoc": "作品展示\n@author wuyongchong.",
+    "entityTableName": "haipin_resume_showcase",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

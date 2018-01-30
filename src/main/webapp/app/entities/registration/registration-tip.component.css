@@ -1,0 +1,12 @@
+.registration-tip{
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    text-align: center;
+	color: red;
+}
+.registration-tip>a{
+    color: #48c1bc;
+    font-size: 20px;
+
+}

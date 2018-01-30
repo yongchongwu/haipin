@@ -1,0 +1,29 @@
+{
+    "haipinApp": {
+        "card" : {
+            "home": {
+                "title": "微名片",
+                "createLabel": "创建",
+                "createOrEditLabel": "创建或编辑"
+            },
+            "created": "A new Card is created with identifier {{ param }}",
+            "updated": "A Card is updated with identifier {{ param }}",
+            "deleted": "A Card is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Card {{ id }}?"
+            },
+            "detail": {
+                "title": "微名片"
+            },
+            "name": "姓名",
+            "highestDegree": "最高学历",
+            "researchField": "研究领域",
+            "email": "电子邮箱",
+            "phone": "电话",
+            "workUnit": "公司",
+            "position": "职位",
+            "city": "所在城市",
+            "user": "用户"
+        }
+    }
+}

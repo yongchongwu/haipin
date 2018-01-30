@@ -1,0 +1,731 @@
+/*取消浏览器内核解析添加的标签内外补丁*/
+* {
+	margin: 0;
+	padding: 0;
+}
+/*取消li的默认前面黑色点点*/
+li {
+	list-style: none;
+}
+/*最大盒子背景*/
+.container-fluid,
+.card.jh-card {
+    background: rgb(253,253,253);
+}
+/*外面大盒子*/
+.search_content {
+	width: 1000px;
+	max-width: 100%;
+	padding: 1px;
+	margin: auto;
+	overflow: auto;
+}
+/*里面内容盒子*/
+.content {
+	padding: 0px 15px;
+	float: left;
+}
+/*内容盒子中的div*/
+.content .top,
+.content .middle,
+.content .bottom {
+	width: 968px;
+    padding: 10px 20px;
+    margin:0 auto;
+}
+/*搜索与结果两个大盒子背景*/
+.content .middle,
+.content .bottom {
+	background: #FFFFFF;
+}
+/*顶部*/
+.content .top {
+	text-align: center;
+    margin: 10px auto;
+    font-size: 32px;
+    color: #7edfe6;
+}
+/*顶部的图片*/
+.top img {
+    vertical-align: middle;
+}
+/*中部每一行*/
+.middle li {
+	height: 65px;
+    padding: 15px 0px 10px;
+    position: relative;
+}
+/*每个标题*/
+strong.title {
+    color: #666;
+    font-size: 14px;
+    line-height: 32px;
+    float: left;
+}
+/*每个下拉菜单*/
+.sk-select select {
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #fff;
+    padding: 6px 30px 6px 10px;
+    border: 1px solid #ccc;
+    outline: 0;
+    font-size: 14px;
+    border-radius: 3px;
+    color: #666;
+}
+/*外面装饰盒*/
+.sk-select {
+	position: relative;
+	float: left;
+}
+/*右边的图标*/
+.sk-select:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    margin-top: -3px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid #666;
+    border-right: 6px solid transparent;
+    border-left: 6px solid transparent;
+    pointer-events: none;
+}
+/*第一行的所有下拉框和装饰盒*/
+.one_row .sk-select,
+.one_row .sk-select select {
+	width: 135px;
+}
+/*第一行、第二行、第三行的所有列*/
+.one_row span.one_col,
+.one_row span.two_col,
+.one_row span.three_col,
+.two_row span.one_col,
+.two_row span.two_col,
+.two_row span.three_col,
+.three_row span.one_col,
+.three_row span.two_col,
+.three_row span.three_col,
+.three_row span.four_col {
+	position: absolute;
+	height: 38px;
+}
+/*一行学历、二行在职大学*/
+.one_row .one_col,
+.two_row .one_col {
+	width: 25%;
+	left: 0;
+}
+/*三行学科排名*/
+.three_row .one_col {
+	width: 28%;
+	left: 0;
+}
+/*一行职称、二行所在大学排名*/
+.one_row .two_col,
+.two_row .two_col {
+	width: 30%;
+	left: 25%;
+}
+/*三行姓名*/
+.three_row .two_col {
+	width: 22%;
+	left: 28%;
+}
+/*一行学科领域、二行目前工作地点*/
+.one_row .three_col,
+.two_row .three_col {
+	width: 45%;
+	left: 55%;
+}
+/*三行年龄*/
+.three_row .three_col {
+	width: 25%;
+	left: 50%;
+}
+/*三行电子邮箱*/
+.three_row .four_col {
+	width: 25%;
+	left: 75%;
+}
+/*学科领域、目前工作地点下拉单定位*/
+.one_row .three_col div.sk-select,
+.two_row .three_col div.sk-select {
+	position: absolute;
+}
+/*第三个*/
+.one_row .three_col div.sk-select:nth-child(4) {
+	right: 0;
+}
+/*第二个*/
+.one_row .three_col div.sk-select:nth-child(3) {
+	right: 145px;
+}
+.two_row .three_col div.sk-select:nth-child(3) {
+	right: 0px;
+}
+/*第一个*/
+.one_row .three_col div.sk-select:nth-child(2) {
+	right: 290px;
+}
+.two_row .three_col div.sk-select:nth-child(2) {
+	right: 155px;
+}
+/*在职大学、所在大学排名、第三行所有输入框*/
+.two_row .one_col input,
+.two_row .one_col div.input,
+.two_row .two_col input,
+.two_row .two_col span,
+.three_row input,.three_row span,
+.three_row div.input {
+	float: left;
+}
+/*学历、职称、学科领域、目前工作地点输入框装饰盒*/
+.one_row .one_col div.input,
+.one_row .two_col div.input,
+.one_row .three_col div.input,
+.two_row .three_col div.input {
+	position: absolute;
+    right: 0;
+    padding: 0 10px !important;
+    width: 83%;
+    cursor: text;
+    overflow: auto;
+}
+/*学历、职称位置和大小*/
+.one_row .one_col div.input,
+.one_row .two_col div.input {
+	right: 20px;
+	width: 77%;
+}
+/*学历大小*/
+.one_row .one_col div.input {
+	width: 72%;
+}
+/*目前工作地点*/
+.two_row .three_col div.input {
+	width: 76%;
+}
+/*学历、职称、学科领域、目前工作地点装饰盒里面的内容盒子*/
+.one_row .one_col div.input span,
+.one_row .two_col div.input span,
+.one_row .three_col div.input span,
+.two_row .three_col div.input span {
+	padding-right: 5px;
+	height: 95%;
+}
+/*学历、职称、学科领域、目前工作地点装饰盒里面的内容*/
+.one_row .one_col div.input span,
+.one_row .one_col div.input p,
+.one_row .two_col div.input span,
+.one_row .two_col div.input p,
+.one_row .three_col div.input span,
+.one_row .three_col div.input p,
+.two_row .three_col div.input span,
+.two_row .three_col div.input p {
+	float: left;
+	color: #666;
+	font-size: 14px;
+	line-height: 32px;
+}
+/*学历、职称、学科领域、目前工作地点输入框装饰盒里面的'X'*/
+.one_row .one_col div.input .clear_title,
+.one_row .two_col div.input .clear_title,
+.one_row .three_col div.input .clear_subject,
+.two_row .three_col div.input .clear_site {
+	font-size: 18px;
+    transform: scale(1,0.7);
+    color: #0275d8;
+    cursor: pointer;
+    line-height: 33px;
+    padding: 0 2px;
+}
+/*学历、职称、学科领域、目前工作地点假输入框'X'悬停变色*/
+.one_row .one_col div.input .clear_title:hover,
+.one_row .two_col div.input .clear_title:hover,
+.one_row .three_col div.input .clear_subject:hover,
+.two_row .three_col div.input .clear_site:hover {
+	color: #fa2a00;
+}
+/*数字输入框中的“至”*/
+.to {
+    line-height: 30px;
+    margin: 0 8px;
+    color: #444;
+    font-size: 14px;
+}
+/*在职大学、姓名输入框装饰盒大小*/
+.two_row .one_col div.input,
+.three_row .two_col div.input {
+	width: 130px;
+}
+/*在职大学输入装饰盒位置*/
+.two_row .one_col div.input {
+	position: absolute;
+	right: 20px;
+}
+/*电子邮箱输入框装饰盒大小*/
+.three_row .four_col div.input {
+	width: 160px;
+	position: absolute;
+	right: 1px;
+}
+/*学历、职称、学科领域、在职大学、目前工作地点、姓名、电子邮箱、模糊检索输入框装饰盒*/
+.one_row .one_col div.input,
+.one_row .two_col div.input,
+.one_row .three_col div.input,
+.two_row .one_col div.input,
+.two_row .three_col div.input,
+.three_row .two_col div.input,
+.three_row .four_col div.input,
+.four_row .two_col div.input {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    height: 35px;
+    padding: 0 25px 0 10px;
+}
+/*子绝父相*/
+.three_row .two_col div.input,
+.four_row .two_col div.input {
+	position: relative;
+}
+/*在职大学、姓名、电子邮箱、模糊检索输入框装饰盒清空按钮'X'*/
+.two_row .one_col div.input span,
+.three_row .two_col div.input span,
+.three_row .four_col div.input span,
+.four_row .two_col div.input span {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 25px;
+	height: 99%;
+	color: #444444;
+	font-size: 15px;
+	cursor: pointer;
+	line-height: 34px;
+	text-align: center;
+}
+/*模糊检索左内边距*/
+.four_row .two_col div.input {
+	padding-left: 30px;
+}
+/*在职大学、姓名、电子邮箱、模糊检索输入框*/
+.two_row .one_col input,
+.three_row .two_col input,
+.three_row .four_col input,
+.four_row .two_col input {
+	padding: 7px;
+    width: 99%;
+    height: 98%;
+	position: relative;
+    top: 1%;
+    outline: 0;
+    font-size: 14px;
+    border: none;
+    color: #666;
+}
+/*所在大学排名、学科排名、年龄输入框*/
+.two_row .two_col input,
+.three_row .one_col input,
+.three_row .three_col input {
+	width: 65px;
+	height: 33px;
+	border-radius: 3px;
+	border: 1px solid #ccc;
+	padding: 0px 10px;
+}
+/*目前工作地点下拉框和装饰盒*/
+.two_row .three_col .sk-select,
+.two_row .three_col .sk-select select {
+	width: 150px;
+}
+/*第四行*/
+.four_row span.one_col,
+.four_row .two_col {
+	display: inline-block;
+	width: 50%;
+	position: absolute;
+	left: 0;
+}
+/*每个区外面小盒子*/
+.four_row .one_col div {
+	margin: 0px 5px;
+}
+/*每个区*/
+.four_row .one_col span.span,
+.four_row .one_col div {
+	display: inline-block;
+	height: 100%;
+	width: 60px;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/*论文分区*/
+.four_row .one_col label {
+	line-height: 30px;
+}
+/*复选框*/
+.four_row .one_col label input,
+.one_row .two_col label input {
+    position: relative;
+    top: 2px;
+}
+/*区*/
+.four_row .one_col label span:nth-child(2),
+.four_row .one_col label span:nth-child(3)  {
+    font-size: 14px;
+    color: #666;
+    line-height: 22px;
+    font-weight: 300;
+}
+/*数字*/
+.four_row .one_col label span:nth-child(3) {
+    font-size: 12px;
+    color: #ccc;
+    margin-right: 0px;
+}
+/*模糊检索*/
+.four_row .two_col {
+	width: 31%;
+	left: 50%;
+}
+/*模糊检索"放大镜"*/
+.search:after {
+    content: "";
+    background: url(../../../content/images/search.svg) no-repeat 0 0;
+    background-size: contain;
+    height: 20px;
+    width: 20px;
+    display: block;
+    position: absolute;
+    left: 4%;
+    top: 20%;
+}
+/*第五行——检索*/
+.middle li.five_row {
+	height: 100px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+/*按钮外面大盒子*/
+.five_row div {
+	text-align: center;
+}
+/*检索按钮*/
+.five_row div .sk-btn {
+	outline: none;
+    line-height: 0px;
+    text-align: center;
+    display: inline-block;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border-radius: 10px;
+    background: #009688;
+    width: 200px;
+    height: 30px;
+    border: 3px solid #e2f8f7;
+    font-size: 16px;
+    color: #FFFFFF;
+    box-shadow: 0 0 10px 0px grey;
+}
+/*点击检索按钮*/
+.five_row div .sk-btn:active {
+    box-shadow: 0 0 10px 0px #7edfe6;
+}
+/*中间和底部*/
+.content .middle,
+.content .bottom {
+    border: 1px solid #efefef;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.08);
+}
+/*底部*/
+.content .bottom {
+    border-radius: 5px;
+    margin: 15px auto;
+    min-height: 600px;
+    float: left;
+}
+/*顶部发现结果与清楚筛选大盒子*/
+.bottom .roof {
+	color: #777;
+	font-size: 14px;
+	float: left;
+	padding-top: 5px;
+	width: 100%;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ddd;
+}
+/*字体行高*/
+.bottom .roof span.result,
+.bottom .roof span.ranking span {
+	line-height: 35px;
+}
+/*排名根据右间距*/
+.bottom .roof span.ranking span {
+	margin-right: 15px;
+}
+/*发现结果*/
+.bottom div .result{
+	float: left;
+}
+/*排名根据*/
+.bottom div .ranking {
+	float: right;
+	font-size: 15px;
+}
+/*排名根据下拉单*/
+.bottom div .ranking .sk-select {
+	float: right;
+}
+/*下拉单字体颜色*/
+.ranking .sk-select select {
+	color: black;
+}
+/*清楚筛选和筛选条件*/
+.bottom .roof .filtrate,
+.bottom .roof .condition {
+	float: left;
+	width: 100%;
+	margin: 35px 0 10px 0;
+}
+/*筛选字体*/
+.bottom .roof .filtrate span {
+	cursor: pointer;
+	color: #f79b1f;
+}
+/*筛选条件*/
+.bottom .roof .condition {
+	margin: 0 0 10px 0;
+}
+/*每个筛选条件*/
+.condition .condition_obj {
+	float: left;
+	padding: 10px 10px;
+	margin: 0 10px 8px 0;
+	background-color: #f79b1f;
+	color: #FFFFFF;
+	border-radius: 3px;
+}
+/*下面的字*/
+.condition .condition_obj p {
+	float: left;
+	line-height: 14px;
+}
+/*最后的x有左白色边框*/
+.condition .condition_obj p:nth-child(3) {
+	border-left: 1px #DDDDDD solid;
+	padding-left: 10px;
+	margin-left: 10px;
+	font-weight: bold;
+}
+/*光标悬停样式*/
+.condition .condition_obj p:nth-child(2),
+.condition .condition_obj p:nth-child(3) {
+	cursor: pointer;
+}
+/*变色且加删除线*/
+.condition .condition_obj p:nth-child(2):hover {
+	color: #fa2a00;
+    text-decoration: line-through;
+}
+/*只变色*/
+.condition .condition_obj p:nth-child(3):hover {
+	color: #fa2a00;
+}
+/*中部搜索结果*/
+.bottom .center {
+	float: left;
+	width: 100%;
+}
+/*每条搜索结果盒子*/
+.bottom .center .search_result {
+	font-size: 15.5px;
+	border-bottom: 1px dashed #ddd;
+	padding: 10px 0px;
+	width: 100%;
+	float: left;
+}
+/*姓名*/
+.search_result div.name {
+	position: relative;
+	top: -6px;
+	font-size: 18px;
+}
+/*姓名链接*/
+.search_result div.name a {
+	text-decoration: none;
+    color: rgb(102,102,102);
+    font-weight: bold;
+    outline:none;
+}
+/*悬停链接*/
+.search_result div.name a:hover {
+	color: rgb(126,223,230);
+}
+/*链接访问过后*/
+.search_result div.name a:visited {
+	color: rgb(148,148,148);
+}
+/*每一列，图片和文字*/
+.search_result li,
+.search_result li p,
+.search_result li img {
+	float: left;
+}
+/*每一行*/
+.search_result li span {
+	display: inline-block;
+	width: 100%;
+	line-height: 22px;
+}
+/*结果第一列*/
+.search_result .one_col {
+	width: 46%;
+}
+/*第二列*/
+.search_result .two_col {
+	width: 32%;
+}
+/*第三列*/
+.search_result .three_col {
+	width: 22%;
+}
+/*标题不换行*/
+.search_result .nowrap {
+	white-space: nowrap;
+}
+/*内容宽度*/
+.search_result .ctt {
+	width: 80%;
+	word-break: break-all;
+}
+/*第三列内容宽度*/
+.search_result .three_ctt {
+	width: 70%;
+	word-break: break-all;
+}
+/*翻页*/
+.page {
+	float: left;
+	margin-top: 20px;
+	width: 100%;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/*居中翻页*/
+.page .justify-content-center {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: flex;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    justify-content: space-around;
+}
+/*所在大学排名、学科排名、年龄数字输入框*/
+.two_row .two_col input,
+.three_row .one_col input,
+.three_row .three_col input {
+	color: #666;
+	font-size: 14px;
+}
+/*复选框*/
+.title_checkbox {
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 35px;
+    font-size: 12px;
+    color: #666666;
+    padding: 10px 20px 15px;
+    z-index: 888;
+    background-color: white;
+    width: 150%;
+}
+/*学历复选框宽度*/
+.one_col .title_checkbox {
+	width: 100%;
+}
+/*复选框外面小盒子*/
+.title_checkbox .checkbox {
+	float: left;
+	width: 33.3%;
+}
+/*学历复选框外面小盒子宽度*/
+.one_col .title_checkbox .checkbox {
+	width: 50%;
+}
+/*复选框*/
+.title_checkbox .checkbox label {
+	float: left;
+	padding: 5px 0px;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+/*关闭按钮'X'*/
+.title_checkbox .title_close {
+	position: absolute;
+	right: 8px;
+    top: 1px;
+    font-size: 18px;
+    transform: scale(1,0.7);
+    color: #0275d8;
+    cursor: pointer;
+}
+/*按钮'X'悬停变色*/
+.title_checkbox .title_close:hover {
+	color: #f79b1f;
+}
+/*蒙板*/
+.search_content .mask {
+	position: fixed;
+	left: 0;
+	top: 0;
+	background: rgba(0,0,0,0.6);
+	z-index: 666;
+}
+/*隐藏蒙板*/
+.search_content .mask {
+	display: none;
+}
+/*回顶部*/
+.back_top {
+	position: fixed;
+	right: 5%;
+	top: 75%;
+	cursor: pointer;
+	background: #476AC2;
+	height: 70px;
+	width: 50px;
+	border-radius: 10px;
+	opacity: 0;
+	transition: opacity 1.5s ease 0s;
+}
+/*点击回顶部*/
+.back_top:active {
+    box-shadow: 0 0 15px 2px gray;
+}
+/*回顶部图片*/
+.back_top img {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}

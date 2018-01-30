@@ -1,0 +1,25 @@
+{
+    "haipinApp": {
+        "resumeSkill" : {
+            "home": {
+                "title": "职业技能",
+                "createLabel": "添加职业技能",
+                "createOrEditLabel": "创建或编辑职业技能"
+            },
+            "created": "A new Resume Skill is created with identifier {{ param }}",
+            "updated": "A Resume Skill is updated with identifier {{ param }}",
+            "deleted": "A Resume Skill is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Skill {{ id }}?"
+            },
+            "detail": {
+                "title": "职业技能"
+            },
+            "resumeId": "简历ID",
+            "skillName": "技能名称 ",
+            "masterLevel": "掌握等级",
+            "skillPercent": "等级百分比",
+            "skillRemark": "技能备注"
+        }
+    }
+}

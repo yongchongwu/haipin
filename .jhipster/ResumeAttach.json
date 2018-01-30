@@ -1,0 +1,38 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "userId",
+            "javadoc": "用户ID",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "attachName",
+            "javadoc": "附件名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        },
+        {
+            "fieldName": "attachUrl",
+            "javadoc": "附件路径",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170801034827",
+    "javadoc": "附件简历\n@author wuyongchong.",
+    "entityTableName": "haipin_resume_attach",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

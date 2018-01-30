@@ -1,0 +1,56 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "resumeId",
+            "javadoc": "简历主表ID",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "skillName",
+            "javadoc": "技能名称",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "masterLevel",
+            "javadoc": "掌握程度名称(了解,熟悉,掌握,精通,专家)",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 20
+        },
+        {
+            "fieldName": "skillPercent",
+            "javadoc": "掌握程度值(0-20,21-40,41-60,61-80,81-100)",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "skillRemark",
+            "javadoc": "技能描述",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 100
+        }
+    ],
+    "changelogDate": "20170801035306",
+    "javadoc": "技能评价\n@author wuyongchong.",
+    "entityTableName": "haipin_resume_skill",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

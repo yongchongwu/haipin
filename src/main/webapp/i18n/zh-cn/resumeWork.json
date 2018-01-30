@@ -1,0 +1,29 @@
+{
+    "haipinApp": {
+        "resumeWork" : {
+            "home": {
+                "title": "工作经历",
+                "createLabel": "添加工作经历",
+                "createOrEditLabel": "创建或编辑工作经历"
+            },
+            "created": "A new Resume Work is created with identifier {{ param }}",
+            "updated": "A Resume Work is updated with identifier {{ param }}",
+            "deleted": "A Resume Work is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Work {{ id }}?"
+            },
+            "detail": {
+                "title": "工作经历"
+            },
+            "resumeId": "简历ID",
+            "companyName": "公司",
+            "companyLogo": "公司图标",
+            "positionName": "职位",
+            "startDate": "开始时间",
+            "endDate": "结束时间",
+            "workContent": "工作内容",
+            "isUploadLogo": "是否上传图标",
+            "time": "在职时间"
+        }
+    }
+}

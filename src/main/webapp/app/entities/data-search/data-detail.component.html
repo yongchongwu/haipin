@@ -1,0 +1,182 @@
+<!--内容-->
+<div class="container-fluid">
+	<div id="exTab3" class="container">
+		<!--基本信息-->
+		<div class="basic col-lg-12">
+	        <!--头像-->
+	        <div class="img col-lg-3 col-md-12">
+		        <img id="photo" [hidden]="!professor_info.photo" src="{{professor_info.photo}}" alt="头像" width="250px" height="300px"/>
+		        <img id="photo" [hidden]="professor_info.photo" src="../../../content/images/no.jpg" alt="头像" width="250px" height="300px"/>
+			</div>
+			<div class="col-lg-9 col-md-12">
+				<ul class="col-lg-7 col-md-6">
+		        	<li>
+		        		<span class="bold" jhiTranslate="haipinApp.dataSearch.title.name">姓名：</span>
+		        		<a id="name" href="" target="_blank">{{professor_info.name}}</a>
+		        	</li>
+		        	<li class="hidden">
+		        		<span>性别：</span>
+		        	</li>
+		        	<li>
+		                <span class="bold" jhiTranslate="haipinApp.dataSearch.title.email">电子邮箱：</span>
+	                    <a href="mailto:{{professor_info.email}}" >
+	                    	{{professor_info.email?professor_info.email:'未知'}}
+	                    </a>
+		            </li>
+		            <li>
+		                <span class="bold" jhiTranslate="haipinApp.dataSearch.title.experience">海外工作、学习经历：</span>
+	            		<span [hidden]="!(professor_info.education_linkedin||professor_info.education_linkedin)">有</span>
+	            		<span [hidden]="professor_info.education_linkedin&&professor_info.education_linkedin">无</span>
+		            </li>
+		            <li class="hidden">
+		                <span class="bold">是否有博士后经历：</span>
+		            </li>
+		            <li>
+		                <span class="bold" jhiTranslate="haipinApp.dataSearch.title.homepage">个人主页：</span>
+		                <span [hidden]="!(professor_info.url||professor_info.url_linkedin)">有</span>
+	            		<span [hidden]="professor_info.url||professor_info.url_linkedin">无</span>
+		            </li>
+		            <li>
+		                <span class="bold" jhiTranslate="haipinApp.dataSearch.title.disciplineDomain">学科领域：</span>
+		                <span>
+		                	{{professor_info.eol1_chinese?professor_info.eol1_chinese:''}}
+		                	{{professor_info.eol1_chinese?professor_info.eol2_chinese:''}}
+		                	{{professor_info.eol1_chinese?professor_info.eol3_chinese:''}}
+		                </span>
+		            </li>
+		    	</ul>
+				<ul class="col-lg-5 col-md-6">
+		    		<li>
+		                <span class="bold" jhiTranslate="haipinApp.dataSearch.title.EnglishName">英文名：</span>
+	            		<span>{{professor_info.name?professor_info.name:'未知'}}</span>
+		            </li>
+		            <li class="hidden">
+		                <span class="bold">生源地：</span>
+		            </li>
+		            <li class="hidden">
+		                <span class="bold">出生日期：</span>
+		            </li>
+		            <li class="hidden">
+		                <span class="bold">国籍：</span>
+		            </li>
+		            <li>
+		                <span class="bold" jhiTranslate="haipinApp.dataSearch.title.title">职称：</span>
+		                <span>{{professor_info.title_chinese?professor_info.title_chinese:'未知'}}</span>
+		            </li>
+		            <li>
+		                <span class="bold" jhiTranslate="haipinApp.dataSearch.title.Place">地点：</span>
+		                <span>{{professor_info.country_chinese?professor_info.state_chinese:'未知'}}</span>
+		            </li>
+		       </ul>
+	        </div>
+		</div>
+		<!--教育经历-->
+		<article class="education col-lg-12">
+            <h6 jhiTranslate="haipinApp.dataSearch.content.educationExperience">教育经历</h6>
+            	<!--有-->
+                <table class="table" [hidden]="!educations">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="w-25">时间</th>
+                            <th>学历</th>
+                            <th>学校</th>
+                            <th>研究方向</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<!--循环教育经历-->
+                        <tr *ngFor="let edu_obj of educations;let idx=index;">
+                            <td>{{ edu_obj.start }}-{{ edu_obj.end }}({{ edu_obj.lenth }}年)</td>
+                            <td>{{ edu_obj.degree }}</td>
+                            <td>{{ edu_obj.university }}</td>
+                            <td>{{ edu_obj.major }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            	<!--无-->
+            	<p [hidden]="educations" jhiTranslate="haipinApp.dataSearch.content.noEducationExperience">&nbsp;&nbsp;暂无教育经历</p>
+        </article>
+        <!--工作经历-->
+		<article class="work col-lg-12">
+            <h6 jhiTranslate="haipinApp.dataSearch.content.WorkExperience">工作经历</h6>
+            	<!--有-->
+                <table class="table col-lg-12" [hidden]="!works">
+                    <thead class="thead-light">
+                    <tr>
+                        <th class="w-25">起止时间</th>
+                        <th>单位</th>
+                        <th>职务</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    	<!--循环工作经历-->
+                        <tr *ngFor="let work_obj of works;let idx=index;">
+                            <td>{{ work_obj.start }}-{{ work_obj.end }}({{ work_obj.lenth }}年)</td>
+                            <td>{{ work_obj.company }}</td>
+                            <td>{{ work_obj.position }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            	<!--无-->
+            	<p [hidden]="works" jhiTranslate="haipinApp.dataSearch.content.noWorkExperience">&nbsp;&nbsp;暂无工作经历</p>
+        </article>
+        <!--论文与出版物-->
+        <div class="paper col-lg-12">
+        	<h6 jhiTranslate="haipinApp.dataSearch.content.paperPublication">论文与出版物</h6>
+			<canvas id="myChart" baseChart
+		            [datasets]="barChartData"
+		            [labels]="barChartLabels"
+		            [options]="barChartOptions"
+		            [legend]="barChartLegend"
+		            [chartType]="barChartType"
+		            [colors]="myColors"></canvas>
+		    <article>
+            	<!--有-->
+                <!--循环出版物-->
+                    <p [hidden]="!publications" *ngFor="let publication_obj of publications;let idx=index;">{{publication_obj}}</p>
+                <!--无-->
+            	<p [hidden]="publications" jhiTranslate="haipinApp.dataSearch.content.nopaperPublication">&nbsp;&nbsp;暂无论文</p>
+            </article>
+        </div>
+        <!--获奖情况-->
+        <article class="hidden reward col-lg-12">
+            <h6>获奖情况</h6>
+            	<!--有-->
+                <ul>
+                    <!--循环获奖情况-->
+                    <li><span>•</span>获奖情况内容</li>
+                </ul>
+            	<!--无-->
+            	<p>&nbsp;&nbsp;暂无获奖情况</p>
+        </article>
+        <!--简历附件-->
+		<article class="hidden resume col-lg-12">
+            <h6>简历附件</h6>
+            	<!--有-->
+                <table class="table col-lg-12">
+                    <thead class="thead-light">
+                    <tr>
+                        <th class="w-25">附件名称</th>
+                        <th>上传时间</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    	<!--循环简历附件-->
+                        <tr>
+                        	<td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            	<!--无-->
+            	<p>&nbsp;&nbsp;暂无附件简历</p>
+        </article>
+        <!--个人主页及其他情况-->
+	    <article class="website col-lg-12">
+	    	<h6 jhiTranslate="haipinApp.dataSearch.content.homepage">个人主页及其他情况</h6>
+            	<a [hidden]="!professor_info.url" href="{{professor_info.url}}" target="_blank">&nbsp;&nbsp;{{professor_info.url}}</a>
+            	<a [hidden]="!professor_info.url_linkedin" href="{{professor_info.url_linkedin}}" target="_blank">&nbsp;&nbsp;{{professor_info.url_linkedin}}</a>
+            	<p [hidden]="professor_info.url||professor_info.url_linkedin">&nbsp;&nbsp;暂无个人主页</p>
+       </article>
+	</div>
+</div>

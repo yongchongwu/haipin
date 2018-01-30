@@ -1,0 +1,25 @@
+.modal-header{
+	width: 100%;
+	display: block;
+	position: relative;
+}
+.modal-title{
+	text-align: center;
+	color: #48C1BC;
+	background: none;
+}
+.close{
+	position: absolute;
+	top: 20px;right: 20px;
+}
+.form-control{
+	border: none;
+	background: #F9F9F9;
+}
+.con{
+	background: #e2f8f7;
+}
+.btn-primary{
+    background: rgb(72, 193, 188);
+    border: none;
+}

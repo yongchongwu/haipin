@@ -1,0 +1,41 @@
+
+<div *ngIf="resumeEducation">
+    <h2><span jhiTranslate="haipinApp.resumeEducation.detail.title">Resume Education</span> {{resumeEducation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="haipinApp.resumeEducation.resumeId">Resume Id</span></dt>
+        <dd>
+            <span>{{resumeEducation.resumeId}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeEducation.schoolName">School Name</span></dt>
+        <dd>
+            <span>{{resumeEducation.schoolName}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeEducation.major">Major</span></dt>
+        <dd>
+            <span>{{resumeEducation.major}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeEducation.degree">Degree</span></dt>
+        <dd>
+            <span>{{resumeEducation.degree}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeEducation.endYear">End Year</span></dt>
+        <dd>
+            <span>{{resumeEducation.endYear}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'resume-education/'+ resumeEducation.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,28 @@
+{
+    "haipinApp": {
+        "resumeProject" : {
+            "home": {
+                "title": "Experience in project",
+                "createLabel": "Create a new Resume Project",
+                "createOrEditLabel": "Create or edit a Resume Project"
+            },
+            "created": "A new Resume Project is created with identifier {{ param }}",
+            "updated": "A Resume Project is updated with identifier {{ param }}",
+            "deleted": "A Resume Project is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Project {{ id }}?"
+            },
+            "detail": {
+                "title": "Resume Project"
+            },
+            "resumeId": "Resume Id",
+            "projectName": "Project Name",
+            "positionName": "Position Name",
+            "startDate": "Start Date",
+            "endDate": "End Date",
+            "projectRemark": "Project Remark",
+            "projectUrl": "Project Url（if so）",
+            "time":"Project start-stop time"
+        }
+    }
+}

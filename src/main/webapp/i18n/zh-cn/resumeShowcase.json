@@ -1,0 +1,26 @@
+{
+    "haipinApp": {
+        "resumeShowcase" : {
+            "home": {
+                "title": "作品展示",
+                "createLabel": "添加作品展示",
+                "createOrEditLabel": "创建或编辑作品展示"
+            },
+            "created": "A new Resume Showcase is created with identifier {{ param }}",
+            "updated": "A Resume Showcase is updated with identifier {{ param }}",
+            "deleted": "A Resume Showcase is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Showcase {{ id }}?"
+            },
+            "detail": {
+                "title": "作品展示"
+            },
+            "resumeId": "简历ID",
+            "title": "作品名称",
+            "content": "作品描述",
+            "imageUrl": "图片路径",
+            "cutImageUrl": "剪切后的图片路径",
+            "url": "作品网址"
+        }
+    }
+}

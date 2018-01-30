@@ -1,0 +1,53 @@
+
+<div *ngIf="resumeWork">
+    <h2><span jhiTranslate="haipinApp.resumeWork.detail.title">Resume Work</span> {{resumeWork.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="haipinApp.resumeWork.resumeId">Resume Id</span></dt>
+        <dd>
+            <span>{{resumeWork.resumeId}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeWork.companyName">Company Name</span></dt>
+        <dd>
+            <span>{{resumeWork.companyName}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeWork.companyLogo">Company Logo</span></dt>
+        <dd>
+            <span>{{resumeWork.companyLogo}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeWork.positionName">Position Name</span></dt>
+        <dd>
+            <span>{{resumeWork.positionName}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeWork.startDate">Start Date</span></dt>
+        <dd>
+            <span>{{resumeWork.startDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeWork.endDate">End Date</span></dt>
+        <dd>
+            <span>{{resumeWork.endDate | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeWork.workContent">Work Content</span></dt>
+        <dd>
+            <span>{{resumeWork.workContent}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeWork.isUploadLogo">Is Upload Logo</span></dt>
+        <dd>
+            <span>{{resumeWork.isUploadLogo}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'resume-work/'+ resumeWork.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

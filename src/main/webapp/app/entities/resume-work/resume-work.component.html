@@ -1,0 +1,70 @@
+<div>
+    <h2>
+        <span jhiTranslate="haipinApp.resumeWork.home.title">Resume Works</span>
+        <button class="btn btn-primary float-right create-resume-work" [routerLink]="['/', { outlets: { popup: ['resume-work-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="haipinApp.resumeWork.home.createLabel">
+            Create new Resume Work
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="resumeWorks">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="haipinApp.resumeWork.resumeId">Resume Id</span></th>
+            <th><span jhiTranslate="haipinApp.resumeWork.companyName">Company Name</span></th>
+            <th><span jhiTranslate="haipinApp.resumeWork.companyLogo">Company Logo</span></th>
+            <th><span jhiTranslate="haipinApp.resumeWork.positionName">Position Name</span></th>
+            <th><span jhiTranslate="haipinApp.resumeWork.startDate">Start Date</span></th>
+            <th><span jhiTranslate="haipinApp.resumeWork.endDate">End Date</span></th>
+            <th><span jhiTranslate="haipinApp.resumeWork.workContent">Work Content</span></th>
+            <th><span jhiTranslate="haipinApp.resumeWork.isUploadLogo">Is Upload Logo</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let resumeWork of resumeWorks ;trackBy: trackId">
+                <td><a [routerLink]="['../resume-work', resumeWork.id ]">{{resumeWork.id}}</a></td>
+                <td>{{resumeWork.resumeId}}</td>
+                <td>{{resumeWork.companyName}}</td>
+                <td>{{resumeWork.companyLogo}}</td>
+                <td>{{resumeWork.positionName}}</td>
+                <td>{{resumeWork.startDate | date:'mediumDate'}}</td>
+                <td>{{resumeWork.endDate | date:'mediumDate'}}</td>
+                <td>{{resumeWork.workContent}}</td>
+                <td>{{resumeWork.isUploadLogo}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../resume-work', resumeWork.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'resume-work/'+ resumeWork.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'resume-work/'+ resumeWork.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

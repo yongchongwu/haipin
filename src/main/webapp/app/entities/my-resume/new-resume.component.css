@@ -1,0 +1,151 @@
+.bigbox {
+    width: 100%;
+    height: auto;
+    padding: 50px 0px;
+    box-sizing: border-box;
+    background: #48c1bc;
+}
+.mainbox {
+    width: 50%;
+    min-width: 350px;
+    height: auto;
+    background:white;
+    margin: auto;
+    padding: 20px 10%;
+    box-sizing: border-box;
+}
+.photo {
+    width: 100%;
+    height: 25px;
+    text-align: center;
+    position: relative;
+}
+.photobox {
+    width: 100%;
+    height: 90px;
+    position: absolute;
+    top: -65px;
+}
+.images {
+    width: 90px;
+    margin: auto;
+    height: 90px;
+    border: 6px solid #f1f1f1;
+    border-radius: 50%;
+}
+.inpu {
+    width: 100%;
+    height:auto;
+}
+small {
+    width: 100%;
+    height: 20px;
+    line-height:20px;
+}
+.inpu-group {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    margin-top: 24px;
+}
+.inpu-group>input {
+    font-size: 18px;
+}
+.inpu-group>select {
+    font-size: 18px;
+    padding: 0px 5px;
+    box-sizing: border-box;
+}
+.inpu-group>select>option {
+}
+.title {
+    text-align: center;
+    font-size: 26px;
+    color: black;
+}
+.textinput {
+    width: 100%;
+    height: 40px;
+    border: none;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+.sele {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background: #f9f9f9;
+    float: left;
+}
+.sele1 {
+     width: 48%;
+     height: 40px;
+     border: none;
+     background: #f9f9f9;
+     float: left;
+ }
+.quhao {
+    width: 20%;
+    height: 40px;
+    float: left;
+    border: none;
+    background: #f9f9f9;
+    padding: 0px 10px;
+    box-sizing: border-box;
+}
+.textinput1 {
+    width: 80%;
+    height: 40px;
+    padding: 0px 10px;
+    width: 78%;
+    float: right;
+    box-sizing: border-box;
+    border: none;
+    background: #f9f9f9;
+}
+.sele2 {
+    width: 48%;
+    height: 40px;
+    border: none;
+    background: #f9f9f9;
+    float: right;
+}
+.sele3 {
+    width: 100%;
+    height: 40px;
+    border: none;
+    background: #f9f9f9;
+    float: left;
+}
+.sub {
+    width: 100%;
+    height: 50px;
+    border: none;
+    padding: 0px 10px;
+    text-align: center;
+    line-height: 50px;
+    box-sizing: border-box;
+    font-size: 24px;
+    color: white;
+    background: #48c1bc;
+    border-radius: 5px;
+}
+.onea {
+    width: 100%;
+    height: auto;
+}
+select,.text_gray {
+	color:gray;
+}
+/*最高学历和工作年限提示语*/
+.inpu-group div:nth-child(3) {
+	float: left;
+	width: 52%;
+}
+.inpu-group div:nth-child(4){
+	float: right;
+	width: 48%;
+}

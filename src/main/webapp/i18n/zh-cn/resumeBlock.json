@@ -1,0 +1,23 @@
+{
+    "haipinApp": {
+        "resumeBlock" : {
+            "home": {
+                "title": "自定义板块",
+                "createLabel": "添加一个自定义板块",
+                "createOrEditLabel": "创建或编辑自定义板块"
+            },
+            "created": "A new Resume Block is created with identifier {{ param }}",
+            "updated": "A Resume Block is updated with identifier {{ param }}",
+            "deleted": "A Resume Block is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Block {{ id }}?"
+            },
+            "detail": {
+                "title": "自定义板块"
+            },
+            "resumeId": "简历ID",
+            "titleName": "自定义标题",
+            "titleContent": "内容"
+        }
+    }
+}

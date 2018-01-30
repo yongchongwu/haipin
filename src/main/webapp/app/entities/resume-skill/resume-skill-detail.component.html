@@ -1,0 +1,41 @@
+
+<div *ngIf="resumeSkill">
+    <h2><span jhiTranslate="haipinApp.resumeSkill.detail.title">Resume Skill</span> {{resumeSkill.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="haipinApp.resumeSkill.resumeId">Resume Id</span></dt>
+        <dd>
+            <span>{{resumeSkill.resumeId}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeSkill.skillName">Skill Name</span></dt>
+        <dd>
+            <span>{{resumeSkill.skillName}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeSkill.masterLevel">Master Level</span></dt>
+        <dd>
+            <span>{{resumeSkill.masterLevel}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeSkill.skillPercent">Skill Percent</span></dt>
+        <dd>
+            <span>{{resumeSkill.skillPercent}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeSkill.skillRemark">Skill Remark</span></dt>
+        <dd>
+            <span>{{resumeSkill.skillRemark}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'resume-skill/'+ resumeSkill.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

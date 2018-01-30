@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span jhiTranslate="haipinApp.resumeEducation.home.title">Resume Educations</span>
+        <button class="btn btn-primary float-right create-resume-education" [routerLink]="['/', { outlets: { popup: ['resume-education-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="haipinApp.resumeEducation.home.createLabel">
+            Create new Resume Education
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="resumeEducations">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="haipinApp.resumeEducation.resumeId">Resume Id</span></th>
+            <th><span jhiTranslate="haipinApp.resumeEducation.schoolName">School Name</span></th>
+            <th><span jhiTranslate="haipinApp.resumeEducation.major">Major</span></th>
+            <th><span jhiTranslate="haipinApp.resumeEducation.degree">Degree</span></th>
+            <th><span jhiTranslate="haipinApp.resumeEducation.endYear">End Year</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let resumeEducation of resumeEducations ;trackBy: trackId">
+                <td><a [routerLink]="['../resume-education', resumeEducation.id ]">{{resumeEducation.id}}</a></td>
+                <td>{{resumeEducation.resumeId}}</td>
+                <td>{{resumeEducation.schoolName}}</td>
+                <td>{{resumeEducation.major}}</td>
+                <td>{{resumeEducation.degree}}</td>
+                <td>{{resumeEducation.endYear}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../resume-education', resumeEducation.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'resume-education/'+ resumeEducation.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'resume-education/'+ resumeEducation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

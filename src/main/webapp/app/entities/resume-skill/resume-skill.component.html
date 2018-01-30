@@ -1,0 +1,64 @@
+<div>
+    <h2>
+        <span jhiTranslate="haipinApp.resumeSkill.home.title">Resume Skills</span>
+        <button class="btn btn-primary float-right create-resume-skill" [routerLink]="['/', { outlets: { popup: ['resume-skill-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="haipinApp.resumeSkill.home.createLabel">
+            Create new Resume Skill
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="resumeSkills">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="haipinApp.resumeSkill.resumeId">Resume Id</span></th>
+            <th><span jhiTranslate="haipinApp.resumeSkill.skillName">Skill Name</span></th>
+            <th><span jhiTranslate="haipinApp.resumeSkill.masterLevel">Master Level</span></th>
+            <th><span jhiTranslate="haipinApp.resumeSkill.skillPercent">Skill Percent</span></th>
+            <th><span jhiTranslate="haipinApp.resumeSkill.skillRemark">Skill Remark</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let resumeSkill of resumeSkills ;trackBy: trackId">
+                <td><a [routerLink]="['../resume-skill', resumeSkill.id ]">{{resumeSkill.id}}</a></td>
+                <td>{{resumeSkill.resumeId}}</td>
+                <td>{{resumeSkill.skillName}}</td>
+                <td>{{resumeSkill.masterLevel}}</td>
+                <td>{{resumeSkill.skillPercent}}</td>
+                <td>{{resumeSkill.skillRemark}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../resume-skill', resumeSkill.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'resume-skill/'+ resumeSkill.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'resume-skill/'+ resumeSkill.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

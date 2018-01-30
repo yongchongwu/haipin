@@ -1,0 +1,33 @@
+
+<div *ngIf="resumeBlock">
+    <h2><span jhiTranslate="haipinApp.resumeBlock.detail.title">Resume Block</span> {{resumeBlock.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="haipinApp.resumeBlock.resumeId">Resume Id</span></dt>
+        <dd>
+            <span>{{resumeBlock.resumeId}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBlock.titleName">Title Name</span></dt>
+        <dd>
+            <span>{{resumeBlock.titleName}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeBlock.titleContent">Title Content</span></dt>
+        <dd>
+            <span>{{resumeBlock.titleContent}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'resume-block/'+ resumeBlock.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

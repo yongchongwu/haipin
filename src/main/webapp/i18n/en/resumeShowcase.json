@@ -1,0 +1,26 @@
+{
+    "haipinApp": {
+        "resumeShowcase" : {
+            "home": {
+                "title": "Resume Showcases",
+                "createLabel": "Create a new Resume Showcase",
+                "createOrEditLabel": "Create or edit a Resume Showcase"
+            },
+            "created": "A new Resume Showcase is created with identifier {{ param }}",
+            "updated": "A Resume Showcase is updated with identifier {{ param }}",
+            "deleted": "A Resume Showcase is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Showcase {{ id }}?"
+            },
+            "detail": {
+                "title": "Resume Showcase"
+            },
+            "resumeId": "Resume Id",
+            "title": "Title",
+            "content": "Content",
+            "imageUrl": "Image Url",
+            "cutImageUrl": "Cut Image Url",
+            "url": "Url"
+        }
+    }
+}

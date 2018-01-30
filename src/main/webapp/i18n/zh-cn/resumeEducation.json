@@ -1,0 +1,25 @@
+{
+    "haipinApp": {
+        "resumeEducation" : {
+            "home": {
+                "title": "教育经历",
+                "createLabel": "添加教育经历",
+                "createOrEditLabel": "创建或编辑教育经历"
+            },
+            "created": "A new Resume Education is created with identifier {{ param }}",
+            "updated": "A Resume Education is updated with identifier {{ param }}",
+            "deleted": "A Resume Education is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Education {{ id }}?"
+            },
+            "detail": {
+                "title": "教育经历"
+            },
+            "resumeId": "简历ID",
+            "schoolName": "学校名称",
+            "major": "所学专业",
+            "degree": "学历",
+            "endYear": "毕业年份"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "haipinApp": {
+        "resumeExpect" : {
+            "home": {
+                "title": "期望工作",
+                "createLabel": "添加期望工作",
+                "createOrEditLabel": "创建或编辑期望工作"
+            },
+            "created": "A new Resume Expect is created with identifier {{ param }}",
+            "updated": "A Resume Expect is updated with identifier {{ param }}",
+            "deleted": "A Resume Expect is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Expect {{ id }}?"
+            },
+            "detail": {
+                "title": "期望工作"
+            },
+            "resumeId": "简历ID",
+            "positionName": "职位名称",
+            "positionType": "职位类型",
+            "city": "所在城市",
+            "salarys": "薪资待遇",
+            "addExplain": "添加说明",
+            "expectPosition": "期望职位",
+            "expectCity": "期望城市",
+            "expectSalarys": "期望月薪",
+            "explain": "补充说明（若有）"
+        }
+    }
+}

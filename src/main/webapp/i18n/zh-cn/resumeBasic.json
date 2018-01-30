@@ -1,0 +1,42 @@
+{
+    "haipinApp": {
+        "resumeBasic" : {
+            "home": {
+                "title": "创建简历基本信息",
+                "createLabel": "创建一份新的简历",
+                "createOrEditLabel": "创建或编辑简历"
+            },
+            "created": "A new Resume Basic is created with identifier {{ param }}",
+            "updated": "A Resume Basic is updated with identifier {{ param }}",
+            "deleted": "A Resume Basic is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Resume Basic {{ id }}?"
+            },
+            "detail": {
+                "title": "基本信息"
+            },
+            "userId": "用户 Id",
+            "name": "姓名",
+            "sex": "性别",
+            "birthDay": "生日",
+            "birthYear": "出生年份",
+            "birthMonth": "出生月份",
+            "dialCode": "拨号代码",
+            "phone": "联系电话",
+            "email": "常用邮箱",
+            "liveCity": "所在城市",
+            "highestDegree": "最高学历",
+            "researchField": "研究领域",
+            "workYear": "工作年限",
+            "headPic": "头像",
+            "oneWord": "一句话展示你的优势",
+            "userIdentity": "显示身份",
+            "resumeName": "简历名称",
+            "resumeKey": "简历关键",
+            "resumeScore": "简历得分",
+            "status": "显示身份",
+            "createTime": "创建时间",
+            "updateTime": "更新时间"
+        }
+    }
+}

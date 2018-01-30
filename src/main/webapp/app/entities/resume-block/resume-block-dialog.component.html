@@ -1,0 +1,66 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myResumeBlockLabel" jhiTranslate="haipinApp.resumeBlock.home.createOrEditLabel">Create or edit a Resume Block</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!resumeBlock.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="resumeBlock.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBlock.resumeId" for="field_resumeId">Resume Id</label>
+            <input type="number" class="form-control" name="resumeId" id="field_resumeId"
+                [(ngModel)]="resumeBlock.resumeId" required />
+            <div [hidden]="!(editForm.controls.resumeId?.dirty && editForm.controls.resumeId?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.resumeId?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.resumeId?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBlock.titleName" for="field_titleName">Title Name</label>
+            <input type="text" class="form-control" name="titleName" id="field_titleName"
+                [(ngModel)]="resumeBlock.titleName" required maxlength="100" />
+            <div [hidden]="!(editForm.controls.titleName?.dirty && editForm.controls.titleName?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.titleName?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.titleName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                   This field cannot be longer than 100 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="haipinApp.resumeBlock.titleContent" for="field_titleContent">Title Content</label>
+            <input type="text" class="form-control" name="titleContent" id="field_titleContent"
+                [(ngModel)]="resumeBlock.titleContent" required />
+            <div [hidden]="!(editForm.controls.titleContent?.dirty && editForm.controls.titleContent?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.titleContent?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

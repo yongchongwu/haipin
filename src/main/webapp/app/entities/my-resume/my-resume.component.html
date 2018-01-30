@@ -1,0 +1,973 @@
+<div class="box">
+    <div class="content_box">
+        <div class="main_left">
+        	<!--基本信息-->
+            <div class="top_a cleartbox">
+            	<!--basic上面有颜色的框-->
+                <div class="bg_top">
+                    <div class="bg_set"></div>
+                    <div class="pho_box">
+                        <div class="a_top_pho"></div>
+                    </div>
+                </div>
+                <!--basic中间信息展示部分-->
+                <div class="info_name_set_box" name="testinfo" [hidden]="Waitload">
+                    <div class="info_set bji">
+                        <a title="点击编辑" (click)="add_cancel('bs_edit')" name="onClickSet" jhiTranslate="entity.action.edit">编辑</a>
+                    </div>
+                    <div class="infom_box" *ngIf="resumeBasic" name="info_box" [hidden]="isShowBasicForm">
+                        <div class="inf_name">{{resumeBasic.name}}</div>
+                        <div class="info_box2">
+                            <div class="inf_show">{{resumeBasic.oneWord}}</div>
+                            <div class="inf_unit_and_posi">{{resumeBasic.userIdentity}}</div>
+                            <div class="inf_email_and_phone">{{resumeBasic.sex=='1'?'男':'女'}}&nbsp;{{resumeBasic.birthYear}}年{{resumeBasic.birthMonth}}月 &nbsp;{{resumeBasic.liveCity}}</div>
+                            <div class="inf_email_and_phone">{{resumeBasic.phone}}&nbsp;&nbsp;{{resumeBasic.email}}</div>
+                        </div>
+                    </div>
+                </div>
+                <!--basic编辑框-->
+                <form class="info_for" name="EditBisicForm" role="form" (ngSubmit)="info()" #EditBisicForm="ngForm" [hidden]="!isShowBasicForm">
+                    <div class="inf_form_box">
+                        <div class="inf_form_gropp nameboo">
+                            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.name">姓名</label>
+                            <input type="text" class="textinput" name="name" [(ngModel)]="resumeBasic.name" required minlength="2" />
+                            <div [hidden]="!(EditBisicForm.controls.name && EditBisicForm.controls.name?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                                	This field is required.
+                                </small>
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.name?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                                	This field is required to be at least 2 characters.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="inf_form_gropp">
+                            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.oneWord">一句话展示你的优势</label>
+                            <input type="text" class="textinput" name="oneWord" [(ngModel)]="resumeBasic.oneWord" minlength="2" />
+                            <div [hidden]="!(EditBisicForm.controls.oneWord && EditBisicForm.controls.oneWord?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.oneWord?.errors?.required" jhiTranslate="entity.validation.required">
+                                	This field is required.
+                                </small>
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.oneWord?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                                	This field is required to be at least 2 characters.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="inf_form_gropp">
+                            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.status">显示身份</label>
+                            <input type="text" class="textinput" name="userIdentity" [(ngModel)]="resumeBasic.userIdentity" minlength="2" />
+                            <div [hidden]="!(EditBisicForm.controls.userIdentity && EditBisicForm.controls.userIdentity?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.userIdentity?.errors?.required" jhiTranslate="entity.validation.required">
+                                	This field is required.
+                                </small>
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.userIdentity?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                                	This field is required to be at least 2 characters.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="inf_form_gropp">
+                            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.sex">性别</label>
+                            <select class="sele" name="sex" [(ngModel)]="resumeBasic.sex" required placeholder="请选择性别">
+                                <option *ngFor="let sexObj of sexs" [value]="sexObj.code">{{sexObj.text}}</option>
+                            </select>
+                            <div [hidden]="!(EditBisicForm.controls.sex && EditBisicForm.controls.sex?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.sex?.errors?.required" jhiTranslate="entity.validation.required">
+                                	This field is required.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="inf_form_gropp">
+                            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.birthDay">生日</label>
+                            <select class="inf_sele" name="birthYear" [(ngModel)]="resumeBasic.birthYear">
+                                <option *ngFor="let birthYearObj of birthYears">{{birthYearObj.text}}</option>
+                            </select>
+                            <div [hidden]="!(EditBisicForm.controls.birthYear && EditBisicForm.controls.birthYear?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.birthYear?.errors?.required" jhiTranslate="entity.validation.required">
+                                	This field is required.
+                                </small>
+                            </div>
+                            <select class="inf_sele1" name="birthMonth" [(ngModel)]="resumeBasic.birthMonth">
+                                <option *ngFor="let birthMonthObj of birthMonths">{{birthMonthObj.text}}</option>
+                            </select>
+                            <div [hidden]="!(EditBisicForm.controls.birthMonth && EditBisicForm.controls.birthMonth?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.birthMonth?.errors?.required" jhiTranslate="entity.validation.required">
+                                	This field is required.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="inf_form_gropp">
+                            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.liveCity">所在城市</label>
+                            <input type="text" class="textinput" name="liveCity" placeholder="所在城市" [(ngModel)]="resumeBasic.liveCity" required maxlength="100" />
+                            <div [hidden]="!(EditBisicForm.controls.liveCity && EditBisicForm.controls.liveCity?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.liveCity?.errors?.required" jhiTranslate="entity.validation.required">
+                                	This field is required.
+                                </small>
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.liveCity?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                                	This field cannot be longer than 100 characters.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="inf_form_gropp">
+                            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.phone">联系电话</label>
+                            <select class="quhao" name="dialCode" [(ngModel)]="resumeBasic.dialCode" required>
+                                <option *ngFor="let dialCodeObj of dialCodes" [value]="dialCodeObj.code">{{dialCodeObj.text}}</option>
+                            </select>
+                            <input class="quhao" placeholder="+区号" [(ngModel)]="resumeBasic.dialCode" name="Basic.dialcode" required />
+                            <input type="text" class="textinput1" name="phone" placeholder="联系电话" [(ngModel)]="resumeBasic.phone" required maxlength="20" />
+                            <div [hidden]="!(EditBisicForm.controls.phone && EditBisicForm.controls.phone?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.phone?.errors?.required" jhiTranslate="entity.validation.required">
+                                	This field is required.
+                                </small>
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.phone?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+                                	This field cannot be longer than 20 characters.
+                                </small>
+                            </div>
+                        </div>
+                        <div class="inf_form_gropp">
+                            <label class="form-control-label" jhiTranslate="haipinApp.resumeBasic.email">常用邮箱</label>
+                            <input type="email" class="textinput" name="email" placeholder="常用邮箱" [(ngModel)]="resumeBasic.email" required maxlength="100" pattern="^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$" />
+                            <div [hidden]="!(EditBisicForm.controls.email && EditBisicForm.controls.email?.invalid)">
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+                                	This field is required.
+                                </small>
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.email?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+                                	This field cannot be longer than 100 characters.
+                                </small>
+                                <small class="form-text text-danger" [hidden]="!EditBisicForm.controls.email?.errors?.pattern" jhiTranslate="entity.validation.pattern" translateValues="{ pattern: 'Email' }">
+                                	This field should follow pattern for "Email".
+                                </small>
+                            </div>
+                        </div>
+                        <!--basic编辑框按钮-->
+                        <div class="buttons">
+                        	<button type="submit" [disabled]="EditBisicForm.form.invalid || isSaving" class="btn btn-primary">
+	                            <span class="fa fa-save"></span>&nbsp;
+	                            <span jhiTranslate="entity.action.save">保存</span>
+	                        </button>
+                        	<button type="button" class="btn btn-warning" data-dismiss="modal" (click)="add_cancel('bs_cancel')">
+	                            <span class="fa fa-ban"></span>&nbsp;
+	                            <span jhiTranslate="entity.action.cancel">取消</span>
+	                        </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--工作经历-->
+            <div class="work_experience_a">
+                <div class="work_experience">
+                    <div class="work_box">
+                    	<!--work标题-->
+                        <div class="work_title">
+                            <h4 class="work_text" jhiTranslate="haipinApp.resumeWork.home.title">工作经历</h4>
+                        </div>
+                        <!--work添加按钮-->
+                        <a class="work_add" [hidden]="isAddWork" (click)="add_cancel('work_add')" jhiTranslate="entity.action.add">添加</a>
+                        <!--work添加框-->
+                        <form [hidden]="!isAddWork" name="AddWorkForm" role="form" (ngSubmit)="work_save(resumeWork)" #AddWorkForm="ngForm">
+                            <div class="add_work_experience_box">
+                                <div class="add_work_unit">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeWork.companyName">公司</label>
+                                    <input type="text" class="add_work_input" name="companyName" [(ngModel)]="resumeWork.companyName" required minlength="2" />
+                                    <div [hidden]="!(AddWorkForm.controls.companyName && AddWorkForm.controls.companyName?.invalid)">
+                                        <small class="form-text text-danger" [hidden]="!AddWorkForm.controls.companyName?.errors?.required" jhiTranslate="entity.validation.required">
+                                        	This field is required.
+                                        </small>
+                                        <small class="form-text text-danger" [hidden]="!AddWorkForm.controls.companyName?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                                        	This field is required to be at least 2 characters.
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="add_work_position">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeWork.positionName">职位</label>
+                                    <input type="text" class="add_work_input" name="positionName" [(ngModel)]="resumeWork.positionName" required minlength="2" />
+                                    <div [hidden]="!(AddWorkForm.controls.positionName && AddWorkForm.controls.positionName?.invalid)">
+                                        <small class="form-text text-danger" [hidden]="!AddWorkForm.controls.positionName?.errors?.required" jhiTranslate="entity.validation.required">
+                                        	This field is required.
+                                        </small>
+                                        <small class="form-text text-danger" [hidden]="!AddWorkForm.controls.positionName?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                                        	This field is required to be at least 2 characters.
+                                        </small>
+                                    </div>
+                                </div>
+                                <div class="add_work_time">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeWork.time">在职时间</label>
+                                    <div class="input-group group_mg">
+						                <input type="text" class="form-control start_time" name="work_add_startDate" ngbDatepicker required #work_add_startDate="ngbDatepicker" [(ngModel)]="resumeWork.startDate" />
+						                <span class="input-group-btn">
+						                    <button type="button" class="btn btn-default" (click)="work_add_startDate.toggle()"><i class="fa fa-calendar"></i></button>
+						                </span>
+						            </div>
+						            <div class="input-group">
+						                <input type="text" class="form-control end_time" name="work_add_endDate" ngbDatepicker required #work_add_endDate="ngbDatepicker" [(ngModel)]="resumeWork.endDate" />
+						                <span class="input-group-btn">
+						                    <button type="button" class="btn btn-default" (click)="work_add_endDate.toggle()"><i class="fa fa-calendar"></i></button>
+						                </span>
+						            </div>
+					            	<div class="hint_left" [hidden]="!(AddWorkForm.controls.work_add_startDate && AddWorkForm.controls.work_add_startDate?.invalid)">
+						                <small class="form-text text-danger" [hidden]="!AddWorkForm.controls.work_add_startDate?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						            </div>
+						            <div class="hint_right" [hidden]="!(AddWorkForm.controls.work_add_endDate && AddWorkForm.controls.work_add_endDate?.invalid)">
+						                <small class="form-text text-danger" [hidden]="!AddWorkForm.controls.work_add_endDate?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						            </div>
+                                </div>
+                                <div class="add_work_main">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeWork.workContent">工作内容</label>
+                                    <textarea wrap="hard" class="add_work_main_area" name="workContent" [(ngModel)]="resumeWork.workContent" required minlength="5"></textarea>
+                                    <div [hidden]="!(AddWorkForm.controls.workContent && AddWorkForm.controls.workContent?.invalid)">
+						                <small class="form-text text-danger"
+						                   [hidden]="!AddWorkForm.controls.workContent?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!AddWorkForm.controls.workContent?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 5 }">
+		                                	This field is required to be at least 5 characters.
+		                                </small>
+						            </div>
+                                </div>
+                                <!--work添加框按钮-->
+                                <div class="buttons">
+                                	<button type="submit" [disabled]="AddWorkForm.form.invalid || isSaving" class="btn btn-primary">
+	                                    <span class="fa fa-save"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.save">保存</span>
+	                                </button>
+                                	<button type="button" class="btn btn-warning" data-dismiss="modal" (click)="add_cancel('work_cancel')">
+	                                    <span class="fa fa-ban"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.cancel">取消</span>
+	                                </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!--work信息展示与编辑框（由后台数据循环展示）-->
+                        <div class="work_box_div" *ngIf="resumeWorks">
+                            <div class="work_info_div" *ngFor="let work_obj of resumeWorks;let idx=index;">
+                            	<!--work信息展示-->
+                                <div class="work_main" [hidden]="work_obj.isShowEditForm">
+                                    <div class="work_unit_img"></div>
+                                    <div class="work_unit_txt">
+                                        <div class="work_unit">{{work_obj.companyName}}</div>
+                                        <div class="work_palce">{{work_obj.positionName}}</div>
+                                    </div>
+                                    <div class="work_unit_set">
+                                        <div class="bji" (click)="work_edit(work_obj,'edit')" jhiTranslate="entity.action.edit">编辑</div>
+                                        <div class="work_time">{{work_obj.startDate}} — {{work_obj.endDate}}</div>
+                                    </div>
+                                </div>
+                                <div class="work_miao" [hidden]="work_obj.isShowEditForm">{{work_obj.workContent}}</div>
+                                <!--work编辑框-->
+                                <form [hidden]="!work_obj.isShowEditForm" name="EditWorkForm" role="form" (ngSubmit)="work_save(work_obj)" #EditWorkForm="ngForm">
+                                    <div class="set_model_div">
+                                        <div class="set_model_title">
+                                            <label class="set_model_l" jhiTranslate="haipinApp.resumeWork.companyName">公司</label>
+                                            <div class="set_model_input_div">
+                                                <input class="add_work_input" type="text" name="companyName" [(ngModel)]="work_obj.companyName" required minlength="2" />
+                                            </div>
+                                            <div [hidden]="!(EditWorkForm.controls.companyName && EditWorkForm.controls.companyName?.invalid)">
+                                                <small class="form-text text-danger" [hidden]="!EditWorkForm.controls.companyName?.errors?.required" jhiTranslate="entity.validation.required">
+                                                	This field is required.
+                                                </small>
+                                                <small class="form-text text-danger" [hidden]="!EditWorkForm.controls.companyName?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                                                	This field is required to be at least 2 characters.
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="set_model_title">
+                                            <label class="set_model_l" jhiTranslate="haipinApp.resumeWork.positionName">职位</label>
+                                            <div class="set_model_input_div">
+                                                <input class="add_work_input" type="text" name="positionName" [(ngModel)]="work_obj.positionName" required minlength="2" />
+                                            </div>
+                                            <div [hidden]="!(EditWorkForm.controls.positionName && EditWorkForm.controls.positionName?.invalid)">
+                                                <small class="form-text text-danger" [hidden]="!EditWorkForm.controls.positionName?.errors?.required" jhiTranslate="entity.validation.required">
+                                                	This field is required.
+                                                </small>
+                                                <small class="form-text text-danger" [hidden]="!EditWorkForm.controls.positionName?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+                                                	This field is required to be at least 2 characters.
+                                                </small>
+                                            </div>
+                                        </div>
+                                        <div class="add_work_time">
+		                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeWork.time">在职时间</label>
+		                                    <div class="input-group group_mg">
+								                <input type="text" class="form-control start_time" name="workedit_startDate" ngbDatepicker required #workedit_startDate="ngbDatepicker" [(ngModel)]="work_obj.startDate" />
+								                <span class="input-group-btn">
+								                    <button type="button" class="btn btn-default" (click)="workedit_startDate.toggle()"><i class="fa fa-calendar"></i></button>
+								                </span>
+								            </div>
+								            <div class="input-group">
+								                <input type="text" class="form-control end_time" name="workedit_endDate" ngbDatepicker required #workedit_endDate="ngbDatepicker" [(ngModel)]="work_obj.endDate" />
+								                <span class="input-group-btn">
+								                    <button type="button" class="btn btn-default" (click)="workedit_endDate.toggle()"><i class="fa fa-calendar"></i></button>
+								                </span>
+								            </div>
+							            	<div class="hint_left" [hidden]="!(EditWorkForm.controls.workedit_startDate && EditWorkForm.controls.workedit_startDate?.invalid)">
+								                <small class="form-text text-danger" [hidden]="!EditWorkForm.controls.workedit_startDate?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								            </div>
+								            <div class="hint_right" [hidden]="!(EditWorkForm.controls.workedit_endDate && EditWorkForm.controls.workedit_endDate?.invalid)">
+								                <small class="form-text text-danger" [hidden]="!EditWorkForm.controls.workedit_endDate?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								            </div>
+		                                </div>
+                                        <div class="set_model_title">
+                                            <label class="set_model_l" jhiTranslate="haipinApp.resumeWork.workContent">工作内容</label>
+                                            <textarea wrap="hard" class="add_work_main_area" name="workContent" [(ngModel)]="work_obj.workContent"required minlength="5"></textarea>
+		                                    <div [hidden]="!(EditWorkForm.controls.workContent && EditWorkForm.controls.workContent?.invalid)">
+								                <small class="form-text text-danger"
+								                   [hidden]="!EditWorkForm.controls.workContent?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								                <small class="form-text text-danger" [hidden]="!EditWorkForm.controls.workContent?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 5 }">
+				                                	This field is required to be at least 5 characters.
+				                                </small>
+								            </div>
+                                        </div>
+                                        <!--work编辑框按钮-->
+                                        <div class="buttons">
+                                        	<button type="submit" [disabled]="EditWorkForm.form.invalid || isSaving" class="btn btn-primary">
+	                                            <span class="fa fa-save">&nbsp;</span>
+	                                            <span jhiTranslate="entity.action.save">保存</span>
+	                                        </button>
+	                                        <button type="button" class="btn btn-warning" data-dismiss="modal" (click)="work_edit(work_obj,'cancel')">
+	                                            <span class="fa fa-ban">&nbsp;</span>
+	                                            <span jhiTranslate="entity.action.cancel">取消</span>
+	                                        </button>
+	                                        <button type='button' class='delete btn btn-danger' (click)='work_confirmDelete(work_obj.id,work_obj,idx)'>
+	                                        	<span class="fa fa-times">&nbsp;</span>
+	                                        	<span jhiTranslate="entity.action.delete">删除本条</span>
+	                                        </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        	<!--教育经历-->
+            <div class="work_experience_a">
+                <div class="work_experience">
+                    <div class="work_box">
+                    	<!--edu标题-->
+                        <div class="work_title">
+                            <h4 class="work_text" jhiTranslate="haipinApp.resumeEducation.home.title">教育经历</h4>
+                        </div>
+                        <!--edu添加按钮-->
+                        <a class="work_add" [hidden]="isAddEdu" (click)="add_cancel('edu_add')" jhiTranslate="entity.action.add">添加</a>
+                        <!--edu添加框-->
+                        <form [hidden]="!isAddEdu" name="AddEduForm" role="form" (ngSubmit)="edu_save(resumeEducation)" #AddEduForm="ngForm">
+                            <div class="add_work_experience_box">
+                                <div class="add_work_unit">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeEducation.schoolName" for="field_schoolName">学校名称</label>
+                                    <input type="text" class="add_work_input" name="schoolName" [(ngModel)]="resumeEducation.schoolName" required minlength="2" maxlength="100" />
+                                    <div [hidden]="!(AddEduForm.controls.schoolName && AddEduForm.controls.schoolName?.invalid)">
+						                <small class="form-text text-danger" [hidden]="!AddEduForm.controls.schoolName?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!AddEduForm.controls.schoolName?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+						                   This field is required to be at least 2 characters.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!AddEduForm.controls.schoolName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+						                   This field cannot be longer than 100 characters.
+						                </small>
+						            </div>
+                                </div>
+                                <div class="add_work_position">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeEducation.major" for="field_major">所学专业</label>
+                                    <input type="text" class="add_work_input" name="major" [(ngModel)]="resumeEducation.major" required maxlength="50" />
+                                    <div [hidden]="!(AddEduForm.controls.major && AddEduForm.controls.major?.invalid)">
+						                <small class="form-text text-danger" [hidden]="!AddEduForm.controls.major?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!AddEduForm.controls.major?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+						                   This field cannot be longer than 50 characters.
+						                </small>
+						            </div>
+                                </div>
+                                <div class="add_work_time educational">
+                                	<span>
+                                		<label class="form-control-label" jhiTranslate="haipinApp.resumeEducation.degree" for="field_degree">学历</label>
+		                                <select class="inf_sele" name="degree" [(ngModel)]="resumeEducation.degree" required maxlength="20">
+			                                <option *ngFor="let xueli of educationals[0].xuelis">{{xueli.code}}</option>
+			                            </select>
+			                            <div class="xueli" [hidden]="!(AddEduForm.controls.degree && AddEduForm.controls.degree?.invalid)">
+							                <small class="form-text text-danger" [hidden]="!AddEduForm.controls.degree?.errors?.required" jhiTranslate="entity.validation.required">
+							                   This field is required.
+							                </small>
+							                <small class="form-text text-danger" [hidden]="!AddEduForm.controls.degree?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+							                   This field cannot be longer than 20 characters.
+							                </small>
+							            </div>
+                                	</span>
+                                	<span>
+                                		<label class="form-control-label" jhiTranslate="haipinApp.resumeEducation.endYear" for="field_endYear">毕业年份</label>
+	                                    <select class="inf_sele" name="endYear" [(ngModel)]="resumeEducation.endYear" required minlength="4" maxlength="4">
+			                                <option *ngFor="let nian of educationals[1].nians">{{nian.code}}</option>
+			                            </select>
+			                            <div class="nianfen" [hidden]="!(AddEduForm.controls.endYear && AddEduForm.controls.endYear?.invalid)">
+							                <small class="form-text text-danger" [hidden]="!AddEduForm.controls.endYear?.errors?.required" jhiTranslate="entity.validation.required">
+							                   This field is required.
+							                </small>
+							                <small class="form-text text-danger" [hidden]="!AddEduForm.controls.endYear?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 4 }">
+							                   This field is required to be at least 4 characters.
+							                </small>
+							                <small class="form-text text-danger" [hidden]="!AddEduForm.controls.endYear?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 4 }">
+							                   This field cannot be longer than 4 characters.
+							                </small>
+							            </div>
+                                	</span>
+                                </div>
+                                <!--edu添加框按钮-->
+                                <div class="buttons">
+                                	<button type="submit" [disabled]="AddEduForm.form.invalid || isSaving" class="btn btn-primary">
+	                                    <span class="fa fa-save"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.save">保存</span>
+	                                </button>
+                                	<button type="button" class="btn btn-warning" data-dismiss="modal" (click)="add_cancel('edu_cancel')">
+	                                    <span class="fa fa-ban"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.cancel">取消</span>
+	                                </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!--edu信息展示与编辑框（由后台数据循环展示）-->
+                        <div class="work_box_div" *ngIf="resumeEducations">
+                            <div class="work_info_div" *ngFor="let edu_obj of resumeEducations;let idx=index;">
+                            	<!--edu信息展示-->
+                                <div class="work_main" [hidden]="edu_obj.isShowEditForm">
+                                    <div class="work_unit_img"></div>
+                                    <div class="work_unit_txt">
+                                        <div class="work_unit">{{edu_obj.schoolName}}</div>
+                                        <div class="work_palce">{{edu_obj.degree}}<span class="dian"> · </span>{{edu_obj.major}}</div>
+                                    </div>
+                                    <div class="work_unit_set">
+                                        <div class="bji" (click)="edu_edit(edu_obj,'edit')" jhiTranslate="entity.action.edit">编辑</div>
+                                        <div class="work_time">{{edu_obj.endYear}}年毕业</div>
+                                    </div>
+                                </div>
+                                <!--edu编辑框-->
+	                           	<form [hidden]="!edu_obj.isShowEditForm" name="EditEduForm" role="form" (ngSubmit)="edu_save(edu_obj)" #EditEduForm="ngForm">
+		                            <div class="add_work_experience_box">
+		                                <div class="add_work_unit">
+		                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeEducation.schoolName" for="field_schoolName">学校名称</label>
+		                                    <input type="text" class="add_work_input" name="schoolName" [(ngModel)]="edu_obj.schoolName" required minlength="2" maxlength="100" />
+		                                    <div [hidden]="!(EditEduForm.controls.schoolName && EditEduForm.controls.schoolName?.invalid)">
+								                <small class="form-text text-danger" [hidden]="!EditEduForm.controls.schoolName?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								                <small class="form-text text-danger" [hidden]="!EditEduForm.controls.schoolName?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+								                   This field is required to be at least 2 characters.
+								                </small>
+								                <small class="form-text text-danger" [hidden]="!EditEduForm.controls.schoolName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+								                   This field cannot be longer than 100 characters.
+								                </small>
+								            </div>
+		                                </div>
+		                                <div class="add_work_position">
+		                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeEducation.major" for="field_major">所学专业</label>
+		                                    <input type="text" class="add_work_input" name="major" [(ngModel)]="edu_obj.major" required maxlength="50" />
+		                                    <div [hidden]="!(EditEduForm.controls.major && EditEduForm.controls.major?.invalid)">
+								                <small class="form-text text-danger" [hidden]="!EditEduForm.controls.major?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								                <small class="form-text text-danger" [hidden]="!EditEduForm.controls.major?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 50 }">
+								                   This field cannot be longer than 50 characters.
+								                </small>
+								            </div>
+		                                </div>
+		                                <div class="add_work_time educational">
+		                                	<span>
+		                                		<label class="form-control-label" jhiTranslate="haipinApp.resumeEducation.degree" for="field_degree">学历</label>
+				                                <select class="inf_sele" name="degree" [(ngModel)]="edu_obj.degree" required maxlength="20">
+					                                <option *ngFor="let xueli of educationals[0].xuelis">{{xueli.code}}</option>
+					                            </select>
+					                            <div class="xueli" [hidden]="!(EditEduForm.controls.degree && EditEduForm.controls.degree?.invalid)">
+									                <small class="form-text text-danger" [hidden]="!EditEduForm.controls.degree?.errors?.required" jhiTranslate="entity.validation.required">
+									                   This field is required.
+									                </small>
+									                <small class="form-text text-danger" [hidden]="!EditEduForm.controls.degree?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+									                   This field cannot be longer than 20 characters.
+									                </small>
+									            </div>
+		                                	</span>
+		                                	<span>
+		                                		<label class="form-control-label" jhiTranslate="haipinApp.resumeEducation.endYear" for="field_endYear">毕业年份</label>
+			                                    <select class="inf_sele" name="endYear" [(ngModel)]="edu_obj.endYear" required minlength="4" maxlength="4">
+					                                <option *ngFor="let nian of educationals[1].nians">{{nian.code}}</option>
+					                            </select>
+		                                	</span>
+		                                	<div class="nianfen" [hidden]="!(EditEduForm.controls.endYear && EditEduForm.controls.endYear?.invalid)">
+								                <small class="form-text text-danger" [hidden]="!EditEduForm.controls.endYear?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								                <small class="form-text text-danger" [hidden]="!EditEduForm.controls.endYear?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 4 }">
+								                   This field is required to be at least 4 characters.
+								                </small>
+								                <small class="form-text text-danger" [hidden]="!EditEduForm.controls.endYear?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 4 }">
+								                   This field cannot be longer than 4 characters.
+								                </small>
+								            </div>
+		                                </div>
+		                                <!--edu编辑框按钮-->
+		                                <div class="buttons">
+		                                	<button type="submit" [disabled]="EditEduForm.form.invalid || isSaving" class="btn btn-primary">
+			                                    <span class="fa fa-save"></span>&nbsp;
+			                                    <span jhiTranslate="entity.action.save">保存</span>
+			                                </button>
+		                                	<button type="button" class="btn btn-warning" data-dismiss="modal" (click)="edu_edit(edu_obj,'cancel')">
+			                                    <span class="fa fa-ban"></span>&nbsp;
+			                                    <span jhiTranslate="entity.action.cancel">取消</span>
+			                                </button>
+			                                <button type='button' class='delete btn btn-danger' (click)='edu_confirmDelete(edu_obj.id,edu_obj,idx)'>
+	                                        	<span class="fa fa-times">&nbsp;</span>
+	                                        	<span jhiTranslate="entity.action.delete">删除本条</span>
+	                                        </button>
+		                                </div>
+		                            </div>
+		                        </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--项目经验-->
+            <div class="work_experience_a">
+                <div class="work_experience">
+                    <div class="work_box">
+                    	<!--pro标题-->
+                        <div class="work_title">
+                            <h4 class="work_text" jhiTranslate="haipinApp.resumeProject.home.title">项目经验</h4>
+                        </div>
+                        <!--pro添加按钮-->
+                        <a class="work_add" [hidden]="isAddPro" (click)="add_cancel('pro_add')" jhiTranslate="entity.action.add">添加</a>
+                        <!--pro添加框-->
+                        <form [hidden]="!isAddPro" name="AddProForm" role="form" novalidate (ngSubmit)="pro_save(resumeProject)" #AddProForm="ngForm">
+                            <div class="add_work_experience_box">
+                                <div class="add_work_unit">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeProject.projectName" for="field_projectName">项目名称</label>
+                                    <input type="text" class="add_work_input" name="projectName" [(ngModel)]="resumeProject.projectName" required minlength="2" maxlength="100" />
+                                    <div [hidden]="!(AddProForm.controls.projectName && AddProForm.controls.projectName?.invalid)">
+						                <small class="form-text text-danger" [hidden]="!AddProForm.controls.projectName?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!AddProForm.controls.projectName?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+						                   This field is required to be at least 2 characters.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!AddProForm.controls.projectName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+						                   This field cannot be longer than 100 characters.
+						                </small>
+						            </div>
+                                </div>
+                                <div class="add_work_position">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeProject.positionName" for="field_positionName">你的职责</label>
+                                    <input type="text" class="add_work_input" name="positionName" [(ngModel)]="resumeProject.positionName" required maxlength="100" />
+                                    <div [hidden]="!(AddProForm.controls.positionName && AddProForm.controls.positionName?.invalid)">
+						                <small class="form-text text-danger" [hidden]="!AddProForm.controls.positionName?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!AddProForm.controls.positionName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+						                   This field cannot be longer than 100 characters.
+						                </small>
+						            </div>
+                                </div>
+                                <div class="add_work_time">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeProject.time" for="field_Date">项目起止时间</label>
+                                    <div class="input-group group_mg">
+						                <input type="text" class="form-control start_time" name="pro_add_startDate" ngbDatepicker required #pro_add_startDate="ngbDatepicker" [(ngModel)]="resumeProject.startDate" />
+						                <span class="input-group-btn">
+						                    <button type="button" class="btn btn-default" (click)="pro_add_startDate.toggle()"><i class="fa fa-calendar"></i></button>
+						                </span>
+						            </div>
+						            <div class="input-group">
+						                <input type="text" class="form-control end_time" name="pro_add_endDate" ngbDatepicker required #pro_add_endDate="ngbDatepicker" [(ngModel)]="resumeProject.endDate" />
+						                <span class="input-group-btn">
+						                    <button type="button" class="btn btn-default" (click)="pro_add_endDate.toggle()"><i class="fa fa-calendar"></i></button>
+						                </span>
+						            </div>
+					            	<div class="hint_left" [hidden]="!(AddProForm.controls.pro_add_startDate && AddProForm.controls.pro_add_startDate?.invalid)">
+						                <small class="form-text text-danger" [hidden]="!AddProForm.controls.pro_add_startDate?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						            </div>
+						            <div class="hint_right" [hidden]="!(AddProForm.controls.pro_add_endDate && AddProForm.controls.pro_add_endDate?.invalid)">
+						                <small class="form-text text-danger" [hidden]="!AddProForm.controls.pro_add_endDate?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						            </div>
+                                </div>
+                                <div class="add_work_main">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeProject.projectRemark" for="field_projectRemark">项目描述</label>
+                                    <textarea wrap="hard" class="add_work_main_area" name="projectRemark" [(ngModel)]="resumeProject.projectRemark" required minlength="5"></textarea>
+						            <div [hidden]="!(AddProForm.controls.projectRemark && AddProForm.controls.projectRemark?.invalid)">
+						                <small class="form-text text-danger"
+						                   [hidden]="!AddProForm.controls.projectRemark?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!AddProForm.controls.projectRemark?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 5 }">
+		                                	This field is required to be at least 5 characters.
+		                                </small>
+						            </div>
+                                </div>
+                                <div class="pro_link">
+                                	<label class="form-control-label" jhiTranslate="haipinApp.resumeProject.projectUrl" for="field_projectUrl">项目链接（若有）</label>
+                                	<input type="text" class="add_work_input"name="projectUrl" [(ngModel)]="resumeProject.projectUrl" />
+                                </div>
+                                <!--pro添加框按钮-->
+                                <div class="buttons">
+                                	<button type="submit" [disabled]="AddProForm.form.invalid || isSaving" class="btn btn-primary">
+	                                    <span class="fa fa-save"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.save">保存</span>
+	                                </button>
+                                	<button type="button" class="btn btn-warning" data-dismiss="modal" (click)="add_cancel('pro_cancel')">
+	                                    <span class="fa fa-ban"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.cancel">取消</span>
+	                                </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!--pro信息展示与编辑框（由后台数据循环展示）-->
+                        <div class="work_box_div" *ngIf="resumeProjects">
+                            <div class="work_info_div" *ngFor="let pro_obj of resumeProjects;let idx=index;">
+                            	<!--pro信息展示-->
+                                <div class="work_main" [hidden]="pro_obj.isShowEditForm">
+                                    <div class="work_unit_img"></div>
+                                    <div class="work_unit_txt">
+                                        <div class="work_unit"><a href="{{pro_obj.projectUrl}}" target="_blank">{{pro_obj.projectName}}</a></div>
+                                        <div class="work_palce">{{pro_obj.positionName}}</div>
+                                    </div>
+                                    <div class="work_unit_set">
+                                        <div class="bji" (click)="pro_edit(pro_obj,'edit')" jhiTranslate="entity.action.edit">编辑</div>
+                                        <div class="work_time">{{pro_obj.startDate}} — {{pro_obj.endDate}}</div>
+                                    </div>
+                                </div>
+                                <div class="work_miao" [hidden]="pro_obj.isShowEditForm">{{pro_obj.projectRemark}}</div>
+                                <!--pro编辑框-->
+                                <form [hidden]="!pro_obj.isShowEditForm" name="EditProForm" role="form" novalidate (ngSubmit)="pro_save(pro_obj)" #EditProForm="ngForm">
+		                            <div class="add_work_experience_box">
+		                                <div class="add_work_unit">
+		                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeProject.projectName" for="field_projectName">项目名称</label>
+		                                    <input type="text" class="add_work_input" name="projectName" [(ngModel)]="pro_obj.projectName" required minlength="2" maxlength="100" />
+		                                    <div [hidden]="!(EditProForm.controls.projectName && EditProForm.controls.projectName?.invalid)">
+								                <small class="form-text text-danger" [hidden]="!EditProForm.controls.projectName?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								                <small class="form-text text-danger" [hidden]="!EditProForm.controls.projectName?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 2 }">
+								                   This field is required to be at least 2 characters.
+								                </small>
+								                <small class="form-text text-danger" [hidden]="!EditProForm.controls.projectName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+								                   This field cannot be longer than 100 characters.
+								                </small>
+								            </div>
+		                                </div>
+		                                <div class="add_work_position">
+		                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeProject.positionName" for="field_positionName">你的职责</label>
+		                                    <input type="text" class="add_work_input" name="positionName" [(ngModel)]="pro_obj.positionName" required maxlength="100" />
+		                                    <div [hidden]="!(EditProForm.controls.positionName && EditProForm.controls.positionName?.invalid)">
+								                <small class="form-text text-danger" [hidden]="!EditProForm.controls.positionName?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								                <small class="form-text text-danger" [hidden]="!EditProForm.controls.positionName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+								                   This field cannot be longer than 100 characters.
+								                </small>
+								            </div>
+		                                </div>
+		                                <div class="add_work_time">
+				                            <label class="form-control-label" jhiTranslate="haipinApp.resumeProject.time" for="field_Date">项目起止时间</label>
+				                            <div class="input-group group_mg">
+								                <input type="text" class="form-control start_time" name="proedit_startDate" ngbDatepicker required #proedit_startDate="ngbDatepicker" [(ngModel)]="pro_obj.startDate" />
+								                <span class="input-group-btn">
+								                    <button type="button" class="btn btn-default" (click)="proedit_startDate.toggle()"><i class="fa fa-calendar"></i></button>
+								                </span>
+								            </div>
+								            <div class="input-group">
+								                <input type="text" class="form-control end_time" name="proedit_endDate" ngbDatepicker required #proedit_endDate="ngbDatepicker" [(ngModel)]="pro_obj.endDate" />
+								                <span class="input-group-btn">
+								                    <button type="button" class="btn btn-default" (click)="proedit_endDate.toggle()"><i class="fa fa-calendar"></i></button>
+								                </span>
+								            </div>
+							            	<div class="hint_left" [hidden]="!(EditProForm.controls.proedit_startDate && EditProForm.controls.proedit_startDate?.invalid)">
+								                <small class="form-text text-danger" [hidden]="!EditProForm.controls.proedit_startDate?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								            </div>
+								            <div class="hint_right" [hidden]="!(EditProForm.controls.proedit_endDate && EditProForm.controls.proedit_endDate?.invalid)">
+								                <small class="form-text text-danger" [hidden]="!EditProForm.controls.proedit_endDate?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								            </div>
+				                        </div>
+		                                <div class="add_work_main">
+		                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeProject.projectRemark" for="field_projectRemark">项目描述</label>
+		                                    <textarea wrap="hard" class="add_work_main_area" name="projectRemark" [(ngModel)]="pro_obj.projectRemark" required minlength="5"></textarea>
+								            <div [hidden]="!(EditProForm.controls.projectRemark && EditProForm.controls.projectRemark?.invalid)">
+								                <small class="form-text text-danger"
+								                   [hidden]="!EditProForm.controls.projectRemark?.errors?.required" jhiTranslate="entity.validation.required">
+								                   This field is required.
+								                </small>
+								                <small class="form-text text-danger" [hidden]="!EditProForm.controls.projectRemark?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 5 }">
+				                                	This field is required to be at least 5 characters.
+				                                </small>
+								            </div>
+		                                </div>
+		                                <div class="pro_link">
+		                                	<label class="form-control-label" jhiTranslate="haipinApp.resumeProject.projectUrl" for="field_projectUrl">项目链接（若有）</label>
+		                                	<input type="text" class="add_work_input"name="projectUrl" [(ngModel)]="pro_obj.projectUrl" />
+		                                </div>
+		                                <!--pro编辑框按钮-->
+		                                <div class="buttons">
+		                                	<button type="submit" [disabled]="EditProForm.form.invalid || isSaving" class="btn btn-primary">
+			                                    <span class="fa fa-save"></span>&nbsp;
+			                                    <span jhiTranslate="entity.action.save">保存</span>
+			                                </button>
+		                                	<button type="button" class="btn btn-warning" data-dismiss="modal" (click)="pro_edit(pro_obj,'cancel')">
+			                                    <span class="fa fa-ban"></span>&nbsp;
+			                                    <span jhiTranslate="entity.action.cancel">取消</span>
+			                                </button>
+			                                <button type='button' class='delete btn btn-danger' (click)='pro_confirmDelete(pro_obj.id,pro_obj,idx)'>
+	                                        	<span class="fa fa-times">&nbsp;</span>
+	                                        	<span jhiTranslate="entity.action.delete">删除本条</span>
+	                                        </button>
+		                                </div>
+		                            </div>
+		                        </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--作品展示-->
+            <!--期望工作-->
+            <div class="work_experience_a">
+                <div class="work_experience">
+                    <div class="work_box expect">
+                    	<!--exp标题-->
+                        <div class="work_title">
+                            <h4 class="work_text" jhiTranslate="haipinApp.resumeExpect.home.title">期望工作</h4>
+                        </div>
+                        <!--exp编辑按钮-->
+                        <a class="work_add" (click)="add_cancel('exp_edit')" [hidden]="isEditExp" jhiTranslate="entity.action.edit">编辑</a>
+                        <!--exp信息展示框-->
+                        <div class="intro_content work_info_div" [hidden]="isEditExp||Waitload" *ngIf="resumeExpect">
+                    		<div class="expect_content">
+                    			<span>{{resumeExpect.positionName}}</span>
+                    			<span>{{resumeExpect.positionType}}</span>
+                    			<span>{{resumeExpect.city}}</span>
+                    			<span>{{resumeExpect.salarys}}</span>
+                    		</div>
+                    		<div class="work_miao" [hidden]="!(resumeExpect.addExplain)"><span>“</span>{{resumeExpect.addExplain}}<span>”</span></div>
+                        </div>
+                        <!--exp编辑框-->
+                        <div class="intro_edit add_work_experience_box" [hidden]="!isEditExp">
+                        	<form name="EditExpForm" role="form" novalidate (ngSubmit)="exp_save()" #EditExpForm="ngForm">
+                        		<div class="add_work_time educational">
+                                	<span>
+                                		<label class="form-control-label" jhiTranslate="haipinApp.resumeExpect.positionName" for="field_positionName">职位名称</label>
+                                		<input type="text" class="inf_sele" name="positionName" [(ngModel)]="resumeExpect.positionName" required maxlength="100" />
+		                                <div class="xueli" [hidden]="!(EditExpForm.controls.positionName && EditExpForm.controls.positionName?.invalid)">
+							                <small class="form-text text-danger"
+							                   [hidden]="!EditExpForm.controls.positionName?.errors?.required" jhiTranslate="entity.validation.required">
+							                   This field is required.
+							                </small>
+							                <small class="form-text text-danger"
+							                   [hidden]="!EditExpForm.controls.positionName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 100 }">
+							                   This field cannot be longer than 100 characters.
+							                </small>
+							            </div>
+                                	</span>
+                                	<span>
+                                		<label class="form-control-label" jhiTranslate="haipinApp.resumeExpect.positionType" for="field_positionType">职位类型</label>
+	                                    <select class="inf_sele" name="positionType" [(ngModel)]="resumeExpect.positionType" required maxlength="20">
+			                                <option *ngFor="let type of educationals[2].types">{{type.code}}</option>
+			                            </select>
+						                <div class="nianfen" [hidden]="!(EditExpForm.controls.positionType && EditExpForm.controls.positionType?.invalid)">
+											<small class="form-text text-danger"
+											   [hidden]="!EditExpForm.controls.positionType?.errors?.required" jhiTranslate="entity.validation.required">
+											   This field is required.
+											</small>
+											<small class="form-text text-danger"
+											   [hidden]="!EditExpForm.controls.positionType?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+											   This field cannot be longer than 20 characters.
+											</small>
+										</div>
+                                	</span>
+                                </div>
+                                <div class="add_work_time educational">
+                                	<span>
+                                		<label class="form-control-label" jhiTranslate="haipinApp.resumeExpect.expectCity" for="field_city">期望城市</label>
+			                            <input type="text" class="inf_sele" name="city" [(ngModel)]="resumeExpect.city" required />
+			                            <div class="xueli" [hidden]="!(EditExpForm.controls.city && EditExpForm.controls.city?.invalid)">
+							                <small class="form-text text-danger"
+							                   [hidden]="!EditExpForm.controls.city?.errors?.required" jhiTranslate="entity.validation.required">
+							                   This field is required.
+							                </small>
+							            </div>
+                                	</span>
+                                	<span>
+                                		<label class="form-control-label" jhiTranslate="haipinApp.resumeExpect.expectSalarys" for="field_salarys">期望月资</label>
+	                                    <select class="inf_sele" name="salarys" [(ngModel)]="resumeExpect.salarys" required maxlength="20">
+			                                <option *ngFor="let salary of educationals[3].salarys">{{salary.code}}</option>
+			                            </select>
+			                            <div class="nianfen" [hidden]="!(EditExpForm.controls.salarys && EditExpForm.controls.salarys?.invalid)">
+							                <small class="form-text text-danger"
+							                   [hidden]="!EditExpForm.controls.salarys?.errors?.required" jhiTranslate="entity.validation.required">
+							                   This field is required.
+							                </small>
+							                <small class="form-text text-danger"
+							                   [hidden]="!EditExpForm.controls.salarys?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 20 }">
+							                   This field cannot be longer than 20 characters.
+							                </small>
+							            </div>
+                                	</span>
+                                </div>
+                        		<div class="add_work_main">
+                                    <label class="form-control-label" jhiTranslate="haipinApp.resumeExpect.explain" for="field_addExplain">补充说明（若有）</label>
+                                    <textarea wrap="hard" class="add_work_main_area" name="addExplain" [(ngModel)]="resumeExpect.addExplain" maxlength="200" ></textarea>
+                                    <div [hidden]="!(EditExpForm.controls.addExplain && EditExpForm.controls.addExplain?.invalid)">
+						                <small class="form-text text-danger"
+						                   [hidden]="!EditExpForm.controls.addExplain?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+						                   This field cannot be longer than 200 characters.
+						                </small>
+						            </div>
+                                </div>
+                        		<!--exp编辑框按钮-->
+                                <div class="buttons">
+                                	<button type="submit" [disabled]="EditExpForm.form.invalid || isSaving" class="btn btn-primary">
+	                                    <span class="fa fa-save"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.save">保存</span>
+	                                </button>
+                                	<button  (click)="add_cancel('exp_cancel')" type="button" class="btn btn-warning" data-dismiss="modal">
+	                                    <span class="fa fa-ban"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.cancel">取消</span>
+	                                </button>
+                                </div>
+                    		</form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--职业技能-->
+            <!--自我描述-->
+            <div class="work_experience_a">
+                <div class="work_experience">
+                    <div class="work_box">
+                    	<!--intro标题-->
+                        <div class="work_title">
+                            <h4 class="work_text" jhiTranslate="haipinApp.resumeIntro.home.title">自我描述</h4>
+                        </div>
+                        <!--intro编辑按钮-->
+                        <a class="work_add" (click)="add_cancel('intro_edit')" [hidden]="isEditIntro" jhiTranslate="entity.action.edit">编辑</a>
+                        <!--intro信息展示框-->
+                        <div class="intro_content work_info_div" [hidden]="isEditIntro||Waitload" *ngIf="resumeIntro">
+                    		<span class="me work_unit_img" [hidden]="!(resumeIntro.content)"></span>
+                    		<div class="work_miao">{{resumeIntro.content}}</div>
+                        </div>
+                        <!--intro编辑框-->
+                        <div class="intro_edit add_work_experience_box" [hidden]="!isEditIntro">
+                        	<div class="intro_guide">
+                        		<h5 jhiTranslate="haipinApp.resumeIntro.guide.title">提供几个思路，试着从这些点描述自己：</h5>
+                        		<ul>
+                        			<li jhiTranslate="haipinApp.resumeIntro.guide.one">· 你认为值得称道的工作细节；</li>
+                        			<li jhiTranslate="haipinApp.resumeIntro.guide.two">· 你曾经克服过的最大挑战；</li>
+                        			<li jhiTranslate="haipinApp.resumeIntro.guide.three">· 你在找工作时最看重的方面；</li>
+                        			<li jhiTranslate="haipinApp.resumeIntro.guide.four">· 你曾经引以为豪的个人项目或者事迹；</li>
+                        			<li jhiTranslate="haipinApp.resumeIntro.guide.five">· 如果你是一位团队领导者，说说你的管理哲学以及独到的行业见解；</li>
+                        			<li jhiTranslate="haipinApp.resumeIntro.guide.six">· 其它你认为能展示你优势的事情；</li>
+                        		</ul>
+                        		<span class="me work_unit_img"></span>
+                        	</div>
+                        	<form name="EditIntroForm" role="form" novalidate (ngSubmit)="intro_save()" #EditIntroForm="ngForm">
+                        		<div class="form-group">
+						            <h5 jhiTranslate="haipinApp.resumeIntro.content">描述内容</h5>
+						            <textarea class="add_work_main_area" name="content" [(ngModel)]="resumeIntro.content" required minlength="5"></textarea>
+						            <div [hidden]="!(EditIntroForm.controls.content && EditIntroForm.controls.content?.invalid)">
+						                <small class="form-text text-danger"
+						                   [hidden]="!EditIntroForm.controls.content?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!EditIntroForm.controls.content?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 5 }">
+		                                	This field is required to be at least 5 characters.
+		                                </small>
+						            </div>
+						        </div>
+                        		<!--intro编辑框按钮-->
+                                <div class="buttons">
+                                	<button type="submit" [disabled]="EditIntroForm.form.invalid || isSaving" class="btn btn-primary">
+	                                    <span class="fa fa-save"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.save">保存</span>
+	                                </button>
+                                	<button  (click)="add_cancel('intro_cancel')" type="button" class="btn btn-warning" data-dismiss="modal">
+	                                    <span class="fa fa-ban"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.cancel">取消</span>
+	                                </button>
+                                </div>
+                    		</form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--自定义板块-->
+            <div class="work_experience_a">
+                <div class="work_experience">
+                    <div class="work_box">
+                    	<!--block标题-->
+                        <div class="work_title" [hidden]="isEditBlock" *ngIf="resumeBlock.titleName">
+                            <h4 class="work_text">{{resumeBlock.titleName}}</h4>
+                        </div>
+                        <!--block编辑按钮-->
+                        <a class="work_add" (click)="add_cancel('block_edit')" [hidden]="isEditBlock" jhiTranslate="entity.action.edit">编辑</a>
+                        <!--block信息展示框-->
+                        <div class="intro_content work_info_div" [hidden]="isEditBlock" *ngIf="resumeBlock">
+                    		<div class="work_miao">{{resumeBlock.titleContent}}</div>
+                        </div>
+                        <!--block编辑框-->
+                        <div class="intro_edit add_work_experience_box" [hidden]="!isEditBlock">
+                        	<form name="EditBlockForm" role="form" novalidate (ngSubmit)="block_save()" #EditBlockForm="ngForm">
+                        		<div class="add_work_unit">
+                        			<label class="form-control-label" jhiTranslate="haipinApp.resumeBlock.titleName" for="field_titleName">自定义标题</label>
+                                    <input type="text" class="add_work_input" name="titleName" [(ngModel)]="resumeBlock.titleName" required maxlength="7" />
+                                    <div [hidden]="!(EditBlockForm.controls.titleName && EditBlockForm.controls.titleName?.invalid)">
+						                <small class="form-text text-danger" [hidden]="!EditBlockForm.controls.titleName?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!EditBlockForm.controls.titleName?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 7 }">
+						                   This field cannot be longer than 7 characters.
+						                </small>
+						            </div>
+                                </div>
+                        		<div class="form-group">
+						            <label class="form-control-label" jhiTranslate="haipinApp.resumeBlock.titleContent">内容</label>
+						            <textarea class="add_work_main_area" name="titleContent" [(ngModel)]="resumeBlock.titleContent" required minlength="5" maxlength="200"></textarea>
+						            <div [hidden]="!(EditBlockForm.controls.titleContent && EditBlockForm.controls.titleContent?.invalid)">
+						                <small class="form-text text-danger"
+						                   [hidden]="!EditBlockForm.controls.titleContent?.errors?.required" jhiTranslate="entity.validation.required">
+						                   This field is required.
+						                </small>
+						                <small class="form-text text-danger" [hidden]="!EditBlockForm.controls.titleContent?.errors?.minlength" jhiTranslate="entity.validation.minlength" translateValues="{ min: 5 }">
+		                                	This field is required to be at least 5 characters.
+		                                </small>
+		                                <small class="form-text text-danger" [hidden]="!EditBlockForm.controls.titleContent?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" translateValues="{ max: 200 }">
+						                   This field cannot be longer than 200 characters.
+						                </small>
+						            </div>
+						        </div>
+                        		<!--block编辑框按钮-->
+                                <div class="buttons">
+                                	<button type="submit" [disabled]="EditBlockForm.form.invalid || isSaving" class="btn btn-primary">
+	                                    <span class="fa fa-save"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.save">保存</span>
+	                                </button>
+                                	<button  (click)="add_cancel('block_cancel')" type="button" class="btn btn-warning" data-dismiss="modal">
+	                                    <span class="fa fa-ban"></span>&nbsp;
+	                                    <span jhiTranslate="entity.action.cancel">取消</span>
+	                                </button>
+                                </div>
+                    		</form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

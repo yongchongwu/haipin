@@ -1,0 +1,45 @@
+
+<div *ngIf="resumeExpect">
+    <h2><span jhiTranslate="haipinApp.resumeExpect.detail.title">Resume Expect</span> {{resumeExpect.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="haipinApp.resumeExpect.resumeId">Resume Id</span></dt>
+        <dd>
+            <span>{{resumeExpect.resumeId}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeExpect.positionName">Position Name</span></dt>
+        <dd>
+            <span>{{resumeExpect.positionName}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeExpect.positionType">Position Type</span></dt>
+        <dd>
+            <span>{{resumeExpect.positionType}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeExpect.city">City</span></dt>
+        <dd>
+            <span>{{resumeExpect.city}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeExpect.salarys">Salarys</span></dt>
+        <dd>
+            <span>{{resumeExpect.salarys}}</span>
+        </dd>
+        <dt><span jhiTranslate="haipinApp.resumeExpect.addExplain">Add Explain</span></dt>
+        <dd>
+            <span>{{resumeExpect.addExplain}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'resume-expect/'+ resumeExpect.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>
